@@ -88,7 +88,7 @@
   header.scrolled{box-shadow:0 12px 34px -22px rgba(7,13,46,.4);}
   nav{display:flex;align-items:center;justify-content:space-between;height:74px;}
   .brand{display:flex;align-items:center;gap:13px;}
-  .logo-mark{width:44px;height:44px;flex:none;}
+  .logo-mark{width:44px;height:44px;flex:none;border-radius:8px;object-fit:contain;}
   .brand-text{display:flex;flex-direction:column;line-height:1;}
   .brand-text b{font-family:'Sora',sans-serif;font-weight:800;font-size:1.32rem;letter-spacing:.04em;color:var(--navy-800);}
   .brand-text span{font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--teal-deep);font-weight:600;margin-top:3px;}
@@ -222,20 +222,15 @@
   .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:auto auto;gap:18px;}
   .gcard{border-radius:18px;overflow:hidden;position:relative;display:flex;flex-direction:column;justify-content:flex-end;transition:transform .4s var(--ease),box-shadow .4s var(--ease);}
   .gcard:hover{transform:translateY(-6px);box-shadow:var(--shadow);}
+  .gcard:hover .gcard-inner img{transform:scale(1.06);}
   .gcard.wide{grid-column:span 2;}
-  .gcard-inner{min-height:220px;background:linear-gradient(180deg,transparent 30%,rgba(7,13,46,.85) 100%),var(--bg,linear-gradient(135deg,var(--navy-600),var(--navy-800)));position:relative;display:flex;align-items:flex-end;padding:26px 24px;}
+  .gcard-inner{min-height:220px;position:relative;display:flex;align-items:flex-end;padding:26px 24px;overflow:hidden;}
   .gcard.wide .gcard-inner{min-height:280px;}
-  .gcard:nth-child(1) .gcard-inner{--bg:linear-gradient(135deg,#0a1a4e,#1fc4c4 260%);}
-  .gcard:nth-child(2) .gcard-inner{--bg:linear-gradient(135deg,#0e4f4f,#1c3489 260%);}
-  .gcard:nth-child(3) .gcard-inner{--bg:linear-gradient(135deg,#1c3489,#0a1240 260%);}
-  .gcard:nth-child(4) .gcard-inner{--bg:linear-gradient(135deg,#07213e,#37e0e0 260%);}
-  .gcard:nth-child(5) .gcard-inner{--bg:linear-gradient(135deg,#070d2e,#0e8f8f 260%);}
-  .gcard:nth-child(6) .gcard-inner{--bg:linear-gradient(135deg,#13256e,#1fc4c4 260%);}
-  .gcard-icon{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;}
-  .gcard-icon svg{width:32px;height:32px;stroke:rgba(255,255,255,.7);fill:none;stroke-width:1.5;}
+  .gcard-inner img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .6s var(--ease);}
+  .gcard-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,13,46,.05) 0%,rgba(7,13,46,.55) 50%,rgba(7,13,46,.9) 100%);z-index:1;}
   .gcard-label{position:relative;z-index:2;}
-  .gcard-label span{display:inline-block;background:rgba(31,196,196,.18);border:1px solid rgba(31,196,196,.35);color:var(--teal-bright);font-family:'Sora',sans-serif;font-size:.7rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:4px 12px;border-radius:999px;margin-bottom:8px;}
-  .gcard-label p{color:#fff;font-family:'Sora',sans-serif;font-size:1rem;font-weight:600;}
+  .gcard-label span{display:inline-block;background:rgba(31,196,196,.2);border:1px solid rgba(31,196,196,.4);color:var(--teal-bright);font-family:'Sora',sans-serif;font-size:.7rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:4px 12px;border-radius:999px;margin-bottom:8px;}
+  .gcard-label p{color:#fff;font-family:'Sora',sans-serif;font-size:1rem;font-weight:600;text-shadow:0 1px 4px rgba(0,0,0,.4);}
   .gallery-note{text-align:center;margin-top:30px;color:var(--slate);font-size:.92rem;}
 
   /* ============ TESTIMONIALS ============ */
@@ -380,12 +375,7 @@
   <div class="wrap">
     <nav>
       <a class="brand" href="#top">
-        <svg class="logo-mark" viewBox="0 0 64 64" aria-label="SAACO logo">
-          <defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1fc4c4"/><stop offset="1" stop-color="#13256e"/></linearGradient></defs>
-          <circle cx="32" cy="32" r="30" fill="none" stroke="url(#lg)" stroke-width="2.4"/>
-          <path d="M32 13 L48 47 L40 47 L32 29 L24 47 L16 47 Z" fill="#13256e"/>
-          <path d="M32 22 L42 43 L36 43 L32 33 L28 43 L22 43 Z" fill="#1fc4c4"/>
-        </svg>
+        <img class="logo-mark" src="img/gallery/saaco-logo.png" alt="SAACO logo" />
         <span class="brand-text"><b>SAACO</b><span>IT &amp; Security Solutions</span></span>
       </a>
       <div class="nav-links" id="navLinks">
@@ -668,46 +658,51 @@
     <div class="gallery-grid">
       <div class="gcard wide reveal">
         <div class="gcard-inner">
-          <div class="gcard-icon"><svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="12" cy="18" r="2"/><path d="M6 8v3a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V8M12 13v3"/></svg></div>
+          <img src="img/gallery/cctv-videowall.jpeg" alt="Hikvision CCTV video wall installation" loading="lazy" />
+          <div class="gcard-overlay"></div>
           <div class="gcard-label">
-            <span>UTP / Fiber</span>
-            <p>Enterprise-grade structured cabling — rack termination, patch panels and cable management across multi-floor facilities</p>
+            <span>CCTV Surveillance</span>
+            <p>Triple-screen Hikvision video wall — 30+ camera feeds, real-time monitoring across facility</p>
           </div>
         </div>
       </div>
       <div class="gcard reveal d1">
         <div class="gcard-inner">
-          <div class="gcard-icon"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="13" height="9" rx="1.5"/><path d="M16 9l5-2v8l-5-2"/></svg></div>
+          <img src="img/gallery/network-rack.jpeg" alt="D-Link patch panel rack installation" loading="lazy" />
+          <div class="gcard-overlay"></div>
           <div class="gcard-label">
-            <span>CCTV</span>
-            <p>High-density video wall control rooms with multi-channel NVR and PTZ management</p>
+            <span>IT Networking</span>
+            <p>D-Link rack with labeled patch panels, structured cabling and active equipment</p>
           </div>
         </div>
       </div>
       <div class="gcard reveal d2">
         <div class="gcard-inner">
-          <div class="gcard-icon"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><circle cx="12" cy="11" r="3"/></svg></div>
+          <img src="img/gallery/biometric-suprema.jpeg" alt="Suprema face recognition biometric terminal" loading="lazy" />
+          <div class="gcard-overlay"></div>
           <div class="gcard-label">
             <span>Biometrics</span>
-            <p>Face recognition &amp; fingerprint time-attendance terminals from ZKTeco and Suprema</p>
+            <p>Suprema face recognition time-attendance terminal — installed and commissioned</p>
           </div>
         </div>
       </div>
       <div class="gcard reveal">
         <div class="gcard-inner">
-          <div class="gcard-icon"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M4 9h16M9 3v6M15 3v6"/></svg></div>
+          <img src="img/gallery/cctv-server-room.jpeg" alt="CCTV control room with server rack" loading="lazy" />
+          <div class="gcard-overlay"></div>
           <div class="gcard-label">
             <span>IT Infrastructure</span>
-            <p>Fully organized server rack builds with UPS, patch management and cable routing</p>
+            <p>Hikvision NVR monitoring stack alongside a fully populated Marshcom server rack</p>
           </div>
         </div>
       </div>
       <div class="gcard wide reveal d1">
         <div class="gcard-inner">
-          <div class="gcard-icon"><svg viewBox="0 0 24 24"><path d="M12 2a6 6 0 0 0-6 6v3l-2 4h16l-2-4V8a6 6 0 0 0-6-6z"/><path d="M9 18a3 3 0 0 0 6 0"/></svg></div>
+          <img src="img/gallery/team-installation.jpeg" alt="SAACO technicians performing industrial UPS installation" loading="lazy" />
+          <div class="gcard-overlay"></div>
           <div class="gcard-label">
             <span>Field Installation</span>
-            <p>On-site deployment teams — aerial installations, trunking, conduit work and commissioning across all facility types</p>
+            <p>SAACO team on-site — industrial Eaton UPS commissioning in a large commercial facility</p>
           </div>
         </div>
       </div>
@@ -870,11 +865,7 @@
     <div class="foot-top">
       <div class="foot-brand">
         <div class="brand">
-          <svg class="logo-mark" viewBox="0 0 64 64">
-            <circle cx="32" cy="32" r="30" fill="none" stroke="#1fc4c4" stroke-width="2.4"/>
-            <path d="M32 13 L48 47 L40 47 L32 29 L24 47 L16 47 Z" fill="#fff"/>
-            <path d="M32 22 L42 43 L36 43 L32 33 L28 43 L22 43 Z" fill="#1fc4c4"/>
-          </svg>
+          <img class="logo-mark" src="img/gallery/saaco-logo.png" alt="SAACO logo" style="border-radius:8px;background:#fff;" />
           <span class="brand-text"><b>SAACO</b><span style="color:var(--teal)">IT &amp; Security Solutions</span></span>
         </div>
         <p>Sultan Ali Bin Ahmad Al Asmari Commercial Establishment. Connecting networks and securing futures across Saudi Arabia.</p>
