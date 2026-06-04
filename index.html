@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SAACO — IT &amp; Security Solutions | Connecting Networks, Securing Futures</title>
+<meta name="description" content="SAACO (Sultan Ali Bin Ahmad Al Asmari Commercial) — leading provider of IT networking and security solutions in Jeddah, Saudi Arabia. CCTV, biometrics, networking, telephony and more." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --navy-900:#070d2e;
+    --navy-800:#0a1240;
+    --navy-700:#0d1a55;
+    --navy-600:#13256e;
+    --navy-500:#1c3489;
+    --teal:#1fc4c4;
+    --teal-bright:#37e0e0;
+    --teal-deep:#0e8f8f;
+    --ink:#0b1430;
+    --slate:#566083;
+    --mist:#f4f6fc;
+    --mist-2:#eaeef8;
+    --white:#ffffff;
+    --line:rgba(31,196,196,.18);
+    --shadow:0 24px 60px -28px rgba(7,13,46,.45);
+    --shadow-sm:0 14px 34px -20px rgba(7,13,46,.4);
+    --maxw:1200px;
+    --ease:cubic-bezier(.22,.61,.36,1);
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Manrope',sans-serif;
+    color:var(--ink);
+    background:var(--mist);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,h4{font-family:'Sora',sans-serif;line-height:1.12;letter-spacing:-.02em;}
+  .ar{font-family:'IBM Plex Sans Arabic',sans-serif;direction:rtl;}
+  a{text-decoration:none;color:inherit;}
+  img{max-width:100%;display:block;}
+  section{position:relative;}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:10px;
+    font-family:'Sora',sans-serif;font-size:.72rem;font-weight:600;
+    letter-spacing:.22em;text-transform:uppercase;color:var(--teal-deep);
+    margin-bottom:18px;
+  }
+  .eyebrow::before{content:"";width:26px;height:2px;background:var(--teal);border-radius:2px;}
+
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    font-family:'Sora',sans-serif;font-weight:600;font-size:.92rem;
+    padding:14px 26px;border-radius:999px;cursor:pointer;border:none;
+    transition:transform .35s var(--ease),box-shadow .35s var(--ease),background .35s var(--ease);
+  }
+  .btn-primary{background:var(--teal);color:var(--navy-900);box-shadow:0 14px 30px -12px rgba(31,196,196,.6);}
+  .btn-primary:hover{transform:translateY(-3px);box-shadow:0 20px 40px -14px rgba(31,196,196,.75);background:var(--teal-bright);}
+  .btn-ghost{background:transparent;color:var(--white);border:1px solid rgba(255,255,255,.28);}
+  .btn-ghost:hover{border-color:var(--teal);color:var(--teal-bright);transform:translateY(-3px);}
+
+  /* ============ TOP BAR ============ */
+  .topbar{
+    background:var(--navy-900);color:rgba(255,255,255,.72);
+    font-size:.8rem;font-weight:500;
+  }
+  .topbar .wrap{display:flex;justify-content:space-between;align-items:center;gap:18px;height:42px;flex-wrap:wrap;}
+  .topbar a{transition:color .25s;}
+  .topbar a:hover{color:var(--teal-bright);}
+  .topbar .tb-group{display:flex;align-items:center;gap:22px;}
+  .topbar .tb-item{display:inline-flex;align-items:center;gap:7px;}
+  .topbar svg{width:14px;height:14px;stroke:var(--teal);fill:none;stroke-width:1.7;}
+  .cr{color:rgba(255,255,255,.42);letter-spacing:.04em;}
+
+  /* ============ NAV ============ */
+  header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.86);backdrop-filter:blur(14px);border-bottom:1px solid rgba(13,26,85,.07);transition:box-shadow .3s,padding .3s;}
+  header.scrolled{box-shadow:0 12px 34px -22px rgba(7,13,46,.4);}
+  nav{display:flex;align-items:center;justify-content:space-between;height:74px;}
+  .brand{display:flex;align-items:center;gap:13px;}
+  .logo-mark{width:44px;height:44px;flex:none;}
+  .brand-text{display:flex;flex-direction:column;line-height:1;}
+  .brand-text b{font-family:'Sora',sans-serif;font-weight:800;font-size:1.32rem;letter-spacing:.04em;color:var(--navy-800);}
+  .brand-text span{font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--teal-deep);font-weight:600;margin-top:3px;}
+  .nav-links{display:flex;align-items:center;gap:34px;}
+  .nav-links a{font-family:'Sora',sans-serif;font-size:.9rem;font-weight:500;color:var(--navy-800);position:relative;padding:4px 0;}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:-3px;width:0;height:2px;background:var(--teal);border-radius:2px;transition:width .3s var(--ease);}
+  .nav-links a:hover::after{width:100%;}
+  .nav-cta{display:inline-flex;}
+  .menu-toggle{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:6px;}
+  .menu-toggle span{width:26px;height:2.4px;background:var(--navy-800);border-radius:2px;transition:.3s;}
+
+  /* ============ HERO ============ */
+  .hero{position:relative;background:radial-gradient(120% 130% at 80% -10%,var(--navy-600) 0%,var(--navy-800) 42%,var(--navy-900) 100%);color:var(--white);overflow:hidden;}
+  .hero-net{position:absolute;inset:0;opacity:.5;}
+  .hero-net .dot{fill:var(--teal);}
+  .hero-net .ln{stroke:rgba(31,196,196,.4);stroke-width:.6;}
+  .hero-glow{position:absolute;width:620px;height:620px;border-radius:50%;background:radial-gradient(circle,rgba(31,196,196,.25),transparent 65%);top:-180px;right:-120px;filter:blur(20px);pointer-events:none;}
+  .hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:center;padding-top:96px;padding-bottom:104px;}
+  .hero-badge{display:inline-flex;align-items:center;gap:9px;background:rgba(31,196,196,.12);border:1px solid rgba(31,196,196,.3);color:var(--teal-bright);font-family:'Sora',sans-serif;font-size:.74rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:8px 16px;border-radius:999px;margin-bottom:26px;}
+  .hero-badge i{width:7px;height:7px;border-radius:50%;background:var(--teal-bright);box-shadow:0 0 0 0 rgba(55,224,224,.7);animation:pulse 2.4s infinite;}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(55,224,224,.6);}70%{box-shadow:0 0 0 9px rgba(55,224,224,0);}100%{box-shadow:0 0 0 0 rgba(55,224,224,0);}}
+  .hero h1{font-size:clamp(2.6rem,5.4vw,4.15rem);font-weight:800;}
+  .hero h1 .teal{color:var(--teal-bright);}
+  .hero .lead{font-size:1.08rem;color:rgba(255,255,255,.78);max-width:520px;margin:24px 0 36px;}
+  .hero-actions{display:flex;gap:16px;flex-wrap:wrap;}
+  .hero-tagline{margin-top:42px;font-family:'Sora',sans-serif;font-style:italic;font-weight:500;letter-spacing:.04em;color:rgba(255,255,255,.55);font-size:1rem;display:flex;align-items:center;gap:14px;}
+  .hero-tagline::before{content:"";width:42px;height:1px;background:rgba(255,255,255,.35);}
+
+  /* Hex cluster visual */
+  .hex-cluster{position:relative;height:440px;display:flex;align-items:center;justify-content:center;}
+  .hexes{position:relative;width:340px;height:380px;}
+  .hex{position:absolute;width:150px;height:170px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;color:#fff;background:linear-gradient(150deg,var(--navy-500),var(--navy-700));border:1px solid rgba(31,196,196,.25);box-shadow:0 30px 60px -30px rgba(0,0,0,.7);}
+  .hex svg{width:34px;height:34px;stroke:var(--teal-bright);fill:none;stroke-width:1.6;}
+  .hex span{font-family:'Sora',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.04em;padding:0 10px;}
+  .hex.h1{top:0;left:95px;animation:float 6s ease-in-out infinite;}
+  .hex.h2{top:120px;left:0;background:linear-gradient(150deg,var(--teal-deep),var(--navy-600));animation:float 6s ease-in-out infinite .8s;}
+  .hex.h3{top:120px;left:190px;animation:float 6s ease-in-out infinite 1.6s;}
+  .hex.h4{top:240px;left:95px;background:linear-gradient(150deg,var(--teal),var(--teal-deep));color:var(--navy-900);animation:float 6s ease-in-out infinite 2.4s;}
+  .hex.h4 svg{stroke:var(--navy-900);}
+  @keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-12px);}}
+
+  /* ============ STATS STRIP ============ */
+  .stats{background:var(--navy-800);color:#fff;}
+  .stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding:38px 28px;}
+  .stat{text-align:center;position:relative;}
+  .stat:not(:last-child)::after{content:"";position:absolute;right:-12px;top:14%;height:72%;width:1px;background:rgba(255,255,255,.12);}
+  .stat b{display:block;font-family:'Sora',sans-serif;font-size:2.3rem;font-weight:800;color:var(--teal-bright);}
+  .stat span{font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.62);}
+
+  /* ============ GENERIC SECTION HEAD ============ */
+  .sec-pad{padding:104px 0;}
+  .sec-head{max-width:680px;margin-bottom:54px;}
+  .sec-head h2{font-size:clamp(1.9rem,3.6vw,2.7rem);font-weight:700;color:var(--navy-800);}
+  .sec-head p{margin-top:18px;color:var(--slate);font-size:1.04rem;}
+  .sec-head.center{margin-left:auto;margin-right:auto;text-align:center;}
+  .sec-head.center .eyebrow{justify-content:center;}
+
+  /* ============ ABOUT ============ */
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+  .about-copy p{color:var(--slate);margin-bottom:18px;font-size:1.03rem;}
+  .about-copy .lead-p{color:var(--ink);font-size:1.12rem;font-weight:500;}
+  .pillars{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:30px;}
+  .pillar{background:var(--white);border:1px solid var(--mist-2);border-radius:16px;padding:22px;box-shadow:var(--shadow-sm);transition:transform .35s var(--ease),box-shadow .35s var(--ease);}
+  .pillar:hover{transform:translateY(-5px);box-shadow:var(--shadow);}
+  .pillar svg{width:30px;height:30px;stroke:var(--teal-deep);fill:none;stroke-width:1.7;margin-bottom:12px;}
+  .pillar b{display:block;font-family:'Sora',sans-serif;font-size:1rem;color:var(--navy-800);margin-bottom:5px;}
+  .pillar span{font-size:.86rem;color:var(--slate);}
+
+  .about-visual{position:relative;border-radius:24px;overflow:hidden;background:radial-gradient(130% 120% at 20% 0%,var(--navy-600),var(--navy-900));min-height:440px;color:#fff;padding:42px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:var(--shadow);}
+  .about-visual .net2{position:absolute;inset:0;opacity:.4;}
+  .av-top{position:relative;z-index:2;}
+  .av-top .mono{font-family:'Sora',sans-serif;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--teal-bright);}
+  .av-top h3{font-size:1.9rem;font-weight:700;margin-top:14px;}
+  .av-list{position:relative;z-index:2;display:flex;flex-direction:column;gap:14px;}
+  .av-list div{display:flex;align-items:center;gap:13px;font-size:.96rem;color:rgba(255,255,255,.85);}
+  .av-list svg{width:20px;height:20px;stroke:var(--teal-bright);fill:none;stroke-width:2;flex:none;}
+
+  /* ============ SERVICES ============ */
+  .services{background:linear-gradient(180deg,var(--mist) 0%,var(--mist-2) 100%);}
+  .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .svc{background:var(--white);border:1px solid var(--mist-2);border-radius:20px;padding:34px 30px;position:relative;overflow:hidden;transition:transform .4s var(--ease),box-shadow .4s var(--ease),border-color .4s;}
+  .svc::before{content:"";position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--teal),var(--teal-deep));transform:scaleX(0);transform-origin:left;transition:transform .45s var(--ease);}
+  .svc:hover{transform:translateY(-8px);box-shadow:var(--shadow);border-color:transparent;}
+  .svc:hover::before{transform:scaleX(1);}
+  .svc-num{position:absolute;top:22px;right:26px;font-family:'Sora',sans-serif;font-weight:800;font-size:2.6rem;color:rgba(13,26,85,.06);line-height:1;}
+  .svc-ic{width:62px;height:70px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:linear-gradient(150deg,var(--navy-600),var(--navy-800));display:flex;align-items:center;justify-content:center;margin-bottom:22px;transition:background .4s;}
+  .svc:hover .svc-ic{background:linear-gradient(150deg,var(--teal),var(--teal-deep));}
+  .svc-ic svg{width:30px;height:30px;stroke:var(--teal-bright);fill:none;stroke-width:1.6;transition:stroke .4s;}
+  .svc:hover .svc-ic svg{stroke:var(--navy-900);}
+  .svc h3{font-size:1.18rem;font-weight:600;color:var(--navy-800);margin-bottom:11px;}
+  .svc p{font-size:.92rem;color:var(--slate);}
+
+  /* ============ CAPABILITIES / WHAT WE DO ============ */
+  .cap{background:var(--navy-900);color:#fff;overflow:hidden;}
+  .cap .net3{position:absolute;inset:0;opacity:.35;}
+  .cap .wrap{position:relative;z-index:2;}
+  .cap .sec-head h2{color:#fff;}
+  .cap .sec-head p{color:rgba(255,255,255,.7);}
+  .chip-grid{display:flex;flex-wrap:wrap;gap:14px;}
+  .chip{display:inline-flex;align-items:center;gap:12px;background:rgba(255,255,255,.04);border:1px solid rgba(31,196,196,.22);border-radius:14px;padding:16px 22px;font-family:'Sora',sans-serif;font-weight:500;font-size:.96rem;transition:background .3s,transform .3s,border-color .3s;}
+  .chip:hover{background:rgba(31,196,196,.1);border-color:var(--teal);transform:translateY(-4px);}
+  .chip svg{width:22px;height:22px;stroke:var(--teal-bright);fill:none;stroke-width:1.7;}
+
+  /* ============ BRANDS ============ */
+  .brands .sec-head{margin-bottom:40px;}
+  .brand-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;}
+  .brand-cell{display:flex;align-items:center;justify-content:center;background:var(--white);border:1px solid var(--mist-2);border-radius:14px;height:104px;transition:transform .35s var(--ease),box-shadow .35s var(--ease);}
+  .brand-cell:hover{transform:translateY(-5px);box-shadow:var(--shadow-sm);}
+  .brand-cell b{font-family:'Sora',sans-serif;font-weight:700;font-size:1.18rem;letter-spacing:.02em;color:var(--navy-700);}
+  .brand-cell b em{font-style:normal;color:var(--teal-deep);}
+
+  /* ============ CONTACT ============ */
+  .contact{background:linear-gradient(160deg,var(--navy-800),var(--navy-900));color:#fff;overflow:hidden;}
+  .contact .net4{position:absolute;inset:0;opacity:.3;}
+  .contact .wrap{position:relative;z-index:2;}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;}
+  .contact .eyebrow{color:var(--teal-bright);}
+  .contact h2{font-size:clamp(1.9rem,3.6vw,2.7rem);font-weight:700;}
+  .contact .lead{color:rgba(255,255,255,.74);margin-top:18px;font-size:1.05rem;max-width:460px;}
+  .ct-list{margin-top:38px;display:flex;flex-direction:column;gap:22px;}
+  .ct-item{display:flex;gap:18px;align-items:flex-start;}
+  .ct-ic{width:48px;height:48px;flex:none;border-radius:13px;background:rgba(31,196,196,.12);border:1px solid rgba(31,196,196,.3);display:flex;align-items:center;justify-content:center;}
+  .ct-ic svg{width:21px;height:21px;stroke:var(--teal-bright);fill:none;stroke-width:1.8;}
+  .ct-item .t b{display:block;font-family:'Sora',sans-serif;font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--teal-bright);margin-bottom:5px;}
+  .ct-item .t a,.ct-item .t span{display:block;color:rgba(255,255,255,.9);font-size:1rem;}
+  .ct-item .t a:hover{color:var(--teal-bright);}
+
+  .contact-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:22px;padding:36px;backdrop-filter:blur(6px);}
+  .contact-card h3{font-size:1.3rem;margin-bottom:6px;}
+  .contact-card p.sub{color:rgba(255,255,255,.6);font-size:.92rem;margin-bottom:26px;}
+  .field{margin-bottom:18px;}
+  .field label{display:block;font-family:'Sora',sans-serif;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:8px;}
+  .field input,.field textarea{width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:11px;padding:13px 15px;color:#fff;font-family:'Manrope',sans-serif;font-size:.95rem;transition:border-color .3s,background .3s;}
+  .field input:focus,.field textarea:focus{outline:none;border-color:var(--teal);background:rgba(31,196,196,.06);}
+  .field input::placeholder,.field textarea::placeholder{color:rgba(255,255,255,.4);}
+  .contact-card .btn-primary{width:100%;justify-content:center;margin-top:6px;}
+  .form-note{font-size:.78rem;color:rgba(255,255,255,.45);margin-top:14px;text-align:center;}
+
+  /* ============ FOOTER ============ */
+  footer{background:var(--navy-900);color:rgba(255,255,255,.65);padding:60px 0 0;}
+  .foot-top{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.09);}
+  .foot-brand .brand-text b{color:#fff;}
+  .foot-brand p{margin-top:18px;font-size:.92rem;max-width:320px;}
+  .foot-col h4{font-family:'Sora',sans-serif;color:#fff;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:18px;}
+  .foot-col a,.foot-col span{display:block;font-size:.92rem;margin-bottom:11px;transition:color .25s;}
+  .foot-col a:hover{color:var(--teal-bright);}
+  .foot-bottom{padding:24px 0;display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;font-size:.84rem;}
+  .foot-bottom .ar{color:rgba(255,255,255,.55);}
+
+  /* ============ REVEAL ANIMATION ============ */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s var(--ease),transform .8s var(--ease);}
+  .reveal.in{opacity:1;transform:none;}
+  .reveal.d1{transition-delay:.08s;}.reveal.d2{transition-delay:.16s;}.reveal.d3{transition-delay:.24s;}
+  .reveal.d4{transition-delay:.32s;}.reveal.d5{transition-delay:.4s;}.reveal.d6{transition-delay:.48s;}
+
+  /* ============ RESPONSIVE ============ */
+  @media(max-width:980px){
+    .hero .wrap{grid-template-columns:1fr;padding-top:64px;padding-bottom:72px;}
+    .hex-cluster{order:-1;height:360px;margin-bottom:10px;}
+    .about-grid,.contact-grid{grid-template-columns:1fr;gap:42px;}
+    .svc-grid{grid-template-columns:repeat(2,1fr);}
+    .stats .wrap{grid-template-columns:repeat(2,1fr);gap:30px 16px;}
+    .stat:nth-child(2)::after{display:none;}
+    .brand-grid{grid-template-columns:repeat(3,1fr);}
+    .foot-top{grid-template-columns:1fr 1fr;}
+  }
+  @media(max-width:680px){
+    .nav-links,.topbar .tb-group.secondary{display:none;}
+    .menu-toggle{display:flex;}
+    .nav-links.open{display:flex;position:absolute;top:74px;left:0;right:0;flex-direction:column;background:#fff;padding:22px 28px;gap:18px;box-shadow:var(--shadow);border-top:1px solid var(--mist-2);}
+    .nav-links.open .nav-cta{display:none;}
+    .sec-pad{padding:72px 0;}
+    .svc-grid{grid-template-columns:1fr;}
+    .pillars{grid-template-columns:1fr;}
+    .brand-grid{grid-template-columns:repeat(2,1fr);}
+    .foot-top{grid-template-columns:1fr;gap:34px;}
+    .stat:nth-child(odd)::after{display:none;}
+    .wrap{padding:0 20px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ TOP BAR ============ -->
+<div class="topbar">
+  <div class="wrap">
+    <div class="tb-group">
+      <a class="tb-item" href="tel:+966590246464"><svg viewBox="0 0 24 24"><path d="M3 5c0 9 7 16 16 16l3-3-4-3-2 2c-3-1-6-4-7-7l2-2-3-4-5 1z"/></svg>0590 246 464</a>
+      <a class="tb-item" href="mailto:it@saaco.info"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>it@saaco.info</a>
+    </div>
+    <div class="tb-group secondary">
+      <span class="tb-item"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.3-7-11a7 7 0 0 1 14 0c0 5.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.4"/></svg>Jeddah, Saudi Arabia</span>
+      <span class="cr">CR 4030504859</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============ NAV ============ -->
+<header id="header">
+  <div class="wrap">
+    <nav>
+      <a class="brand" href="#top">
+        <svg class="logo-mark" viewBox="0 0 64 64" aria-label="SAACO logo">
+          <defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1fc4c4"/><stop offset="1" stop-color="#13256e"/></linearGradient></defs>
+          <circle cx="32" cy="32" r="30" fill="none" stroke="url(#lg)" stroke-width="2.4"/>
+          <path d="M32 13 L48 47 L40 47 L32 29 L24 47 L16 47 Z" fill="#13256e"/>
+          <path d="M32 22 L42 43 L36 43 L32 33 L28 43 L22 43 Z" fill="#1fc4c4"/>
+        </svg>
+        <span class="brand-text"><b>SAACO</b><span>IT &amp; Security Solutions</span></span>
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#capabilities">What We Do</a>
+        <a href="#brands">Brands</a>
+        <a href="#contact" class="btn btn-primary nav-cta">Get a Quote</a>
+      </div>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <svg class="hero-net" id="heroNet" preserveAspectRatio="xMidYMid slice"></svg>
+  <div class="hero-glow"></div>
+  <div class="wrap">
+    <div class="hero-copy">
+      <div class="hero-badge reveal in"><i></i>Trusted Technology Partner · Jeddah, KSA</div>
+      <h1 class="reveal in d1">Connecting Networks,<br><span class="teal">Securing Futures.</span></h1>
+      <p class="lead reveal in d2">SAACO delivers reliable, end-to-end IT networking and security solutions — from structured cabling and CCTV to biometric access, telephony and complete network security — engineered to keep your business secure, connected and thriving.</p>
+      <div class="hero-actions reveal in d3">
+        <a href="#contact" class="btn btn-primary">Request a Consultation
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#services" class="btn btn-ghost">Explore Services</a>
+      </div>
+      <div class="hero-tagline reveal in d4">Reliability · Speed of response · Attention to detail</div>
+    </div>
+    <div class="hex-cluster reveal in d2">
+      <div class="hexes">
+        <div class="hex h1"><svg viewBox="0 0 24 24"><path d="M2 8l10-5 10 5-10 5z"/><path d="M2 8v8l10 5 10-5V8"/></svg><span>Networking</span></div>
+        <div class="hex h2"><svg viewBox="0 0 24 24"><path d="M3 7l9-4 9 4v6c0 5-4 8-9 9-5-1-9-4-9-9z"/></svg><span>Security</span></div>
+        <div class="hex h3"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="13" rx="2"/><path d="M8 21h8M12 18v3"/><circle cx="12" cy="11" r="3"/></svg><span>CCTV</span></div>
+        <div class="hex h4"><svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="4"/><path d="M5 21c0-4 3.5-6 7-6s7 2 7 6"/></svg><span>Biometrics</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS ============ -->
+<section class="stats">
+  <div class="wrap">
+    <div class="stat reveal"><b>9+</b><span>Core Solutions</span></div>
+    <div class="stat reveal d1"><b>360°</b><span>Project Delivery</span></div>
+    <div class="stat reveal d2"><b>24/7</b><span>Support &amp; AMC</span></div>
+    <div class="stat reveal d3"><b>100%</b><span>Client-Centric</span></div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="sec-pad" id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-copy reveal">
+        <div class="eyebrow">About Us</div>
+        <h2 style="font-size:clamp(1.9rem,3.6vw,2.7rem);color:var(--navy-800);margin-bottom:22px;">Your partner in growth, backed by expertise.</h2>
+        <p class="lead-p">We are a leading provider of IT networking and security solutions, dedicated to delivering reliable, cutting-edge services that empower businesses.</p>
+        <p>With a team of highly skilled professionals bringing many years of industry experience to every project, our commitment to quality, swift response times and attention to detail ensures effective, efficient solutions tailored to your specific needs.</p>
+        <p>At the core of our values is a deep sense of responsibility to our clients — we deliver not only top-tier technology, but long-term support and maintenance that keeps your business secure, connected and thriving.</p>
+        <div class="pillars">
+          <div class="pillar reveal d1">
+            <svg viewBox="0 0 24 24"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
+            <b>Reliability</b><span>Solutions built to perform and to last.</span>
+          </div>
+          <div class="pillar reveal d2">
+            <svg viewBox="0 0 24 24"><path d="M13 2L3 14h7l-1 8 10-12h-7z"/></svg>
+            <b>Swift Response</b><span>Fast, dependable support when it matters.</span>
+          </div>
+          <div class="pillar reveal d3">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            <b>Long-term Support</b><span>Maintenance that extends equipment life.</span>
+          </div>
+          <div class="pillar reveal d4">
+            <svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-5 6-5s6 1.7 6 5"/><path d="M16 11l2 2 3-3"/></svg>
+            <b>Client-Centric</b><span>Personalized service, every engagement.</span>
+          </div>
+        </div>
+      </div>
+      <div class="about-visual reveal d2">
+        <svg class="net2" preserveAspectRatio="xMidYMid slice"></svg>
+        <div class="av-top">
+          <div class="mono">Why SAACO</div>
+          <h3>Excellence, expertise &amp; customer-centric service.</h3>
+        </div>
+        <div class="av-list">
+          <div><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7"/></svg>End-to-end design, deployment &amp; management</div>
+          <div><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7"/></svg>Performance, scalability &amp; security by design</div>
+          <div><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7"/></svg>Residential, commercial &amp; industrial expertise</div>
+          <div><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7"/></svg>Planned preventive &amp; corrective maintenance</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section class="sec-pad services" id="services">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <div class="eyebrow">Our Services</div>
+      <h2>Complete IT &amp; security solutions, under one roof.</h2>
+      <p>Nine core capabilities covering every layer of your infrastructure — designed, deployed and maintained by one accountable partner.</p>
+    </div>
+    <div class="svc-grid">
+      <!-- 1 -->
+      <div class="svc reveal">
+        <span class="svc-num">01</span>
+        <div class="svc-ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M8 20h8M12 16v4"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+        <h3>IT Infrastructure Solutions</h3>
+        <p>End-to-end design, deployment and management of reliable IT infrastructure tailored to business requirements — ensuring performance, scalability and security.</p>
+      </div>
+      <!-- 2 -->
+      <div class="svc reveal d1">
+        <span class="svc-num">02</span>
+        <div class="svc-ic"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="13" height="9" rx="1.5"/><path d="M16 9l5-2v8l-5-2"/><circle cx="9.5" cy="10.5" r="2"/></svg></div>
+        <h3>CCTV Camera Systems</h3>
+        <p>Planning, implementation and commissioning of advanced CCTV surveillance for real-time monitoring, enhanced security and proactive incident prevention across all facilities.</p>
+      </div>
+      <!-- 3 -->
+      <div class="svc reveal d2">
+        <span class="svc-num">03</span>
+        <div class="svc-ic"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><circle cx="12" cy="11" r="3"/><path d="M9 11c.6-1.8 1.5-2.8 3-2.8"/></svg></div>
+        <h3>Biometric Time Attendance</h3>
+        <p>Accurately track employee working hours using fingerprint, face recognition and other biometric technologies for dependable, automated attendance management.</p>
+      </div>
+      <!-- 4 -->
+      <div class="svc reveal">
+        <span class="svc-num">04</span>
+        <div class="svc-ic"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="13" height="18" rx="2"/><circle cx="13" cy="12" r="2"/><path d="M19 11v2"/></svg></div>
+        <h3>Biometric Door Access Control</h3>
+        <p>Secure access control that restricts entry to authorized personnel only — improving safety and access management across every door and facility.</p>
+      </div>
+      <!-- 5 -->
+      <div class="svc reveal d1">
+        <span class="svc-num">05</span>
+        <div class="svc-ic"><svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="12" cy="18" r="2"/><path d="M6 8v3a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V8M12 13v3"/></svg></div>
+        <h3>UTP / Fiber Networking</h3>
+        <p>Structured cabling systems including UTP and fiber-optic networks to support reliable data, voice and video communication throughout your premises.</p>
+      </div>
+      <!-- 6 -->
+      <div class="svc reveal d2">
+        <span class="svc-num">06</span>
+        <div class="svc-ic"><svg viewBox="0 0 24 24"><rect x="6" y="3" width="12" height="18" rx="2"/><path d="M9 6h6M9 9h6"/><circle cx="9" cy="13" r="1"/><circle cx="12" cy="13" r="1"/><circle cx="15" cy="13" r="1"/></svg></div>
+        <h3>IP Centralized Telephone Systems</h3>
+        <p>Deployment of IP-based telephone systems enabling efficient internal and external communication, with scalability and clear cost optimization.</p>
+      </div>
+      <!-- 7 -->
+      <div class="svc reveal">
+        <span class="svc-num">07</span>
+        <div class="svc-ic"><svg viewBox="0 0 24 24"><path d="M4 9v6h4l6 4V5l-6 4z"/><path d="M18 8a5 5 0 0 1 0 8"/></svg></div>
+        <h3>Public Address Systems</h3>
+        <p>Design and installation of public address systems for clear audio communication, announcements and reliable emergency alerts.</p>
+      </div>
+      <!-- 8 -->
+      <div class="svc reveal d1">
+        <span class="svc-num">08</span>
+        <div class="svc-ic"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M12 8v4M12 15h.01"/></svg></div>
+        <h3>AMC — Annual Maintenance</h3>
+        <p>Planned preventive and corrective maintenance services to ensure continuous system performance, reliability and extended equipment life.</p>
+      </div>
+      <!-- 9 -->
+      <div class="svc reveal d2">
+        <span class="svc-num">09</span>
+        <div class="svc-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/><rect x="9" y="10" width="6" height="5" rx="1" fill="currentColor" stroke="none"/></svg></div>
+        <h3>IT Networking &amp; Security</h3>
+        <p>Complete networking solutions, from LAN/WAN setup to network security, firewalls and VPNs — ensuring your data and communications stay safe and reliable.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CAPABILITIES / WHAT WE DO ============ -->
+<section class="sec-pad cap" id="capabilities">
+  <svg class="net3" preserveAspectRatio="xMidYMid slice"></svg>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow" style="color:var(--teal-bright)">What We Do</div>
+      <h2>Systems that protect, connect &amp; empower.</h2>
+      <p>A focused portfolio of security and networking systems, delivered with the same standard of care from first survey to ongoing support.</p>
+    </div>
+    <div class="chip-grid">
+      <div class="chip reveal"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/></svg>Security Systems</div>
+      <div class="chip reveal d1"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="13" height="9" rx="1.5"/><path d="M16 9l5-2v8l-5-2"/></svg>CCTV Surveillance</div>
+      <div class="chip reveal d2"><svg viewBox="0 0 24 24"><path d="M12 2a6 6 0 0 0-6 6v3l-2 4h16l-2-4V8a6 6 0 0 0-6-6z"/><path d="M9 18a3 3 0 0 0 6 0"/></svg>Anti-Theft Alarm</div>
+      <div class="chip reveal d3"><svg viewBox="0 0 24 24"><path d="M2 8l10-5 10 5-10 5z"/><path d="M2 8v8l10 5 10-5V8"/></svg>Networking</div>
+      <div class="chip reveal"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><circle cx="12" cy="11" r="3"/></svg>Biometric Devices</div>
+      <div class="chip reveal d1"><svg viewBox="0 0 24 24"><rect x="6" y="3" width="12" height="18" rx="2"/><path d="M9 6h6"/><circle cx="12" cy="13" r="1"/></svg>Centralized Telephony</div>
+      <div class="chip reveal d2"><svg viewBox="0 0 24 24"><path d="M4 9v6h4l6 4V5l-6 4z"/><path d="M18 8a5 5 0 0 1 0 8"/></svg>Public Address System</div>
+      <div class="chip reveal d3"><svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="12" cy="18" r="2"/><path d="M6 8v3a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V8M12 13v3"/></svg>Fiber &amp; Structured Cabling</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BRANDS ============ -->
+<section class="sec-pad brands" id="brands">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <div class="eyebrow">Brands We Use</div>
+      <h2>Engineered with industry-leading technology.</h2>
+      <p>We build on trusted, enterprise-grade hardware to guarantee performance and longevity.</p>
+    </div>
+    <div class="brand-grid">
+      <div class="brand-cell reveal"><b>HIK<em>VISION</em></b></div>
+      <div class="brand-cell reveal d1"><b>Dahua</b></div>
+      <div class="brand-cell reveal d2"><b>AJAX</b></div>
+      <div class="brand-cell reveal d3"><b>ZKT<em>eco</em></b></div>
+      <div class="brand-cell reveal d4"><b>Grandstream</b></div>
+      <div class="brand-cell reveal"><b>Ruijie</b></div>
+      <div class="brand-cell reveal d1"><b>CISCO</b></div>
+      <div class="brand-cell reveal d2"><b>BELDEN</b></div>
+      <div class="brand-cell reveal d3"><b>D-Link</b></div>
+      <div class="brand-cell reveal d4"><b>+ more</b></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="sec-pad contact" id="contact">
+  <svg class="net4" preserveAspectRatio="xMidYMid slice"></svg>
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="reveal">
+        <div class="eyebrow">Get in Touch</div>
+        <h2>Let's secure &amp; connect your business.</h2>
+        <p class="lead">Tell us what you need — from a single CCTV installation to a full IT infrastructure rollout — and our team will respond promptly.</p>
+        <div class="ct-list">
+          <div class="ct-item">
+            <div class="ct-ic"><svg viewBox="0 0 24 24"><path d="M3 5c0 9 7 16 16 16l3-3-4-3-2 2c-3-1-6-4-7-7l2-2-3-4-5 1z"/></svg></div>
+            <div class="t"><b>Phone</b><a href="tel:+966590246464">0590 246 464</a><a href="tel:+966552151564">0552 151 564</a></div>
+          </div>
+          <div class="ct-item">
+            <div class="ct-ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></div>
+            <div class="t"><b>Email</b><a href="mailto:it@saaco.info">it@saaco.info</a><a href="mailto:sales@sultanalasmari.com">sales@sultanalasmari.com</a></div>
+          </div>
+          <div class="ct-item">
+            <div class="ct-ic"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.3-7-11a7 7 0 0 1 14 0c0 5.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.4"/></svg></div>
+            <div class="t"><b>Address</b><span>Al Sharif Commercial Center,</span><span>King Fahad Road, Jeddah, Saudi Arabia</span></div>
+          </div>
+          <div class="ct-item">
+            <div class="ct-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg></div>
+            <div class="t"><b>Website</b><a href="https://www.saaco.info" target="_blank" rel="noopener">www.saaco.info</a></div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-card reveal d2">
+        <h3>Request a Quote</h3>
+        <p class="sub">Fill in the form and we'll get back to you shortly.</p>
+        <form id="quoteForm">
+          <div class="field"><label for="name">Full Name</label><input id="name" type="text" placeholder="Your name" required></div>
+          <div class="field"><label for="email">Email or Phone</label><input id="email" type="text" placeholder="How can we reach you?" required></div>
+          <div class="field"><label for="service">Service of Interest</label><input id="service" type="text" placeholder="e.g. CCTV, Networking, AMC"></div>
+          <div class="field"><label for="msg">Message</label><textarea id="msg" rows="3" placeholder="Tell us about your project"></textarea></div>
+          <button type="submit" class="btn btn-primary">Send Enquiry
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+          <p class="form-note" id="formNote">We typically respond within one business day.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="brand">
+          <svg class="logo-mark" viewBox="0 0 64 64">
+            <circle cx="32" cy="32" r="30" fill="none" stroke="#1fc4c4" stroke-width="2.4"/>
+            <path d="M32 13 L48 47 L40 47 L32 29 L24 47 L16 47 Z" fill="#fff"/>
+            <path d="M32 22 L42 43 L36 43 L32 33 L28 43 L22 43 Z" fill="#1fc4c4"/>
+          </svg>
+          <span class="brand-text"><b>SAACO</b><span style="color:var(--teal)">IT &amp; Security Solutions</span></span>
+        </div>
+        <p>Sultan Ali Bin Ahmad Al Asmari Commercial Establishment. Connecting networks and securing futures across Saudi Arabia.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Company</h4>
+        <a href="#about">About Us</a>
+        <a href="#services">Services</a>
+        <a href="#capabilities">What We Do</a>
+        <a href="#brands">Brands</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="foot-col">
+        <h4>Contact</h4>
+        <a href="tel:+966590246464">0590 246 464</a>
+        <a href="tel:+966552151564">0552 151 564</a>
+        <a href="mailto:it@saaco.info">it@saaco.info</a>
+        <a href="https://www.saaco.info" target="_blank" rel="noopener">www.saaco.info</a>
+        <span>Jeddah, Saudi Arabia</span>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="yr"></span> SAACO — Sultan Ali Bin Ahmad Al Asmari Commercial · CR 4030504859</span>
+      <span class="ar">مؤسسة سلطان علي بن أحمد الأسمري التجارية</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // year
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // sticky header shadow
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 12);
+  });
+
+  // mobile menu
+  const toggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  // reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal:not(.in)').forEach(el => io.observe(el));
+
+  // form (no backend — friendly confirmation)
+  const form = document.getElementById('quoteForm');
+  const note = document.getElementById('formNote');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    note.textContent = "Thank you! Your enquiry is ready — we'll be in touch soon.";
+    note.style.color = '#37e0e0';
+    form.reset();
+  });
+
+  // ---- generate network-node backgrounds ----
+  function buildNet(svg, count, w, h){
+    const NS='http://www.w3.org/2000/svg';
+    svg.setAttribute('viewBox', `0 0 ${w} ${h}`);
+    const pts=[];
+    for(let i=0;i<count;i++){ pts.push({x:Math.random()*w, y:Math.random()*h}); }
+    // lines between near points
+    for(let i=0;i<pts.length;i++){
+      for(let j=i+1;j<pts.length;j++){
+        const dx=pts[i].x-pts[j].x, dy=pts[i].y-pts[j].y;
+        if(Math.hypot(dx,dy) < w*0.16){
+          const l=document.createElementNS(NS,'line');
+          l.setAttribute('x1',pts[i].x); l.setAttribute('y1',pts[i].y);
+          l.setAttribute('x2',pts[j].x); l.setAttribute('y2',pts[j].y);
+          l.setAttribute('class','ln');
+          l.setAttribute('stroke','rgba(31,196,196,0.35)');
+          l.setAttribute('stroke-width','0.7');
+          svg.appendChild(l);
+        }
+      }
+    }
+    pts.forEach(p=>{
+      const c=document.createElementNS(NS,'circle');
+      c.setAttribute('cx',p.x); c.setAttribute('cy',p.y);
+      c.setAttribute('r', 1.4 + Math.random()*2.2);
+      c.setAttribute('fill','rgba(31,196,196,0.7)');
+      svg.appendChild(c);
+    });
+  }
+  buildNet(document.getElementById('heroNet'), 46, 1200, 720);
+  document.querySelectorAll('.net2,.net3,.net4').forEach(svg => buildNet(svg, 34, 800, 600));
+</script>
+</body>
+</html>
