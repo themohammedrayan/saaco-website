@@ -63,12 +63,22 @@
     padding:14px 26px;border-radius:999px;cursor:pointer;border:none;
     transition:transform .35s var(--ease),box-shadow .35s var(--ease),background .35s var(--ease);
   }
-  .btn-primary{background:var(--teal);color:var(--navy-900);box-shadow:0 14px 30px -12px rgba(31,196,196,.6);}
-  .btn-primary:hover{transform:translateY(-3px);box-shadow:0 20px 40px -14px rgba(31,196,196,.75);background:var(--teal-bright);}
-  .btn-ghost{background:transparent;color:var(--white);border:1px solid rgba(255,255,255,.28);}
-  .btn-ghost:hover{border-color:var(--teal);color:var(--teal-bright);transform:translateY(-3px);}
-  .btn-wa{background:#25d366;color:#fff;box-shadow:0 14px 30px -12px rgba(37,211,102,.5);}
-  .btn-wa:hover{transform:translateY(-3px);box-shadow:0 20px 40px -14px rgba(37,211,102,.65);background:#1ebe5c;}
+  .btn-primary{
+    background:linear-gradient(130deg,var(--teal-bright) 0%,var(--teal) 55%,var(--teal-deep) 100%);
+    color:var(--navy-900);font-weight:700;
+    box-shadow:0 8px 28px -8px rgba(31,196,196,.65),inset 0 1px 0 rgba(255,255,255,.28);
+    position:relative;overflow:hidden;
+  }
+  .btn-primary::after{
+    content:"";position:absolute;inset:0;border-radius:inherit;
+    background:linear-gradient(135deg,rgba(255,255,255,.18) 0%,transparent 60%);
+    pointer-events:none;
+  }
+  .btn-primary:hover{transform:translateY(-3px);box-shadow:0 18px 40px -10px rgba(31,196,196,.8);filter:brightness(1.08);}
+  .btn-ghost{background:transparent;color:var(--white);border:1.5px solid rgba(255,255,255,.3);}
+  .btn-ghost:hover{border-color:var(--teal);color:var(--teal-bright);transform:translateY(-3px);background:rgba(31,196,196,.06);}
+  .btn-wa{background:linear-gradient(130deg,#2edb6f,#25d366,#1db954);color:#fff;box-shadow:0 8px 24px -8px rgba(37,211,102,.55);}
+  .btn-wa:hover{transform:translateY(-3px);box-shadow:0 18px 36px -8px rgba(37,211,102,.72);filter:brightness(1.07);}
 
   /* ============ TOP BAR ============ */
   .topbar{
@@ -138,7 +148,7 @@
   .stat span{font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.62);}
 
   /* ============ GENERIC SECTION HEAD ============ */
-  .sec-pad{padding:104px 0;}
+  .sec-pad{padding:88px 0;}
   .sec-head{max-width:680px;margin-bottom:54px;}
   .sec-head h2{font-size:clamp(1.9rem,3.6vw,2.7rem);font-weight:700;color:var(--navy-800);}
   .sec-head p{margin-top:18px;color:var(--slate);font-size:1.04rem;}
@@ -206,16 +216,6 @@
   .ind-content h4{font-size:1.1rem;font-weight:600;margin-bottom:6px;}
   .ind-content p{font-size:.82rem;color:rgba(255,255,255,.72);}
 
-  /* ============ CAPABILITIES / WHAT WE DO ============ */
-  .cap{background:var(--navy-900);color:#fff;overflow:hidden;}
-  .cap .net3{position:absolute;inset:0;opacity:.35;}
-  .cap .wrap{position:relative;z-index:2;}
-  .cap .sec-head h2{color:#fff;}
-  .cap .sec-head p{color:rgba(255,255,255,.7);}
-  .chip-grid{display:flex;flex-wrap:wrap;gap:14px;}
-  .chip{display:inline-flex;align-items:center;gap:12px;background:rgba(255,255,255,.04);border:1px solid rgba(31,196,196,.22);border-radius:14px;padding:16px 22px;font-family:'Sora',sans-serif;font-weight:500;font-size:.96rem;transition:background .3s,transform .3s,border-color .3s;}
-  .chip:hover{background:rgba(31,196,196,.1);border-color:var(--teal);transform:translateY(-4px);}
-  .chip svg{width:22px;height:22px;stroke:var(--teal-bright);fill:none;stroke-width:1.7;}
 
   /* ============ PROJECT GALLERY ============ */
   .gallery{background:var(--navy-900);}
@@ -367,7 +367,8 @@
 
   /* ============ RESPONSIVE ============ */
   @media(max-width:980px){
-    .hero .wrap{grid-template-columns:1fr;padding-top:64px;padding-bottom:72px;}
+    .sec-pad{padding:68px 0;}
+    .hero .wrap{grid-template-columns:1fr;padding-top:56px;padding-bottom:64px;}
     .hex-cluster{order:-1;height:360px;margin-bottom:10px;}
     .about-grid,.contact-grid{grid-template-columns:1fr;gap:42px;}
     .svc-grid{grid-template-columns:repeat(2,1fr);}
@@ -392,7 +393,10 @@
     .menu-toggle{display:flex;}
     .nav-links.open{display:flex;position:absolute;top:74px;left:0;right:0;flex-direction:column;background:#fff;padding:22px 28px;gap:18px;box-shadow:var(--shadow);border-top:1px solid var(--mist-2);}
     .nav-links.open .nav-cta{display:none;}
-    .sec-pad{padding:72px 0;}
+    .sec-pad{padding:52px 0;}
+    .sec-head{margin-bottom:36px;}
+    .gallery-grid{grid-template-rows:repeat(6,200px);}
+    .stats .wrap{padding:32px 20px;}
     .svc-grid{grid-template-columns:1fr;}
     .pillars{grid-template-columns:1fr;}
     .brand-grid{grid-template-columns:repeat(2,1fr);}
@@ -444,7 +448,7 @@
         <a href="#services">Services</a>
         <a href="#projects">Projects</a>
         <a href="#brands">Brands</a>
-        <a href="#contact" class="btn btn-primary nav-cta">Get a Quote</a>
+        <a href="#contact" class="btn btn-primary nav-cta">Get a Quote &nbsp;→</a>
       </div>
       <button class="menu-toggle" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
     </nav>
@@ -641,73 +645,6 @@
   </div>
 </section>
 
-<!-- ============ INDUSTRIES ============ -->
-<section class="sec-pad industries">
-  <div class="wrap">
-    <div class="sec-head center reveal">
-      <div class="eyebrow">Industries We Serve</div>
-      <h2>Built for every sector, tailored to your needs.</h2>
-      <p>From small offices to large industrial facilities — our solutions scale to match your environment.</p>
-    </div>
-    <div class="ind-grid">
-      <div class="ind reveal">
-        <div class="ind-bg"></div>
-        <div class="ind-content">
-          <div class="ind-ic"><svg viewBox="0 0 24 24"><path d="M3 21V7l9-4 9 4v14"/><path d="M9 21V12h6v9"/></svg></div>
-          <h4>Commercial</h4>
-          <p>Offices, malls, commercial centres &amp; retail</p>
-        </div>
-      </div>
-      <div class="ind reveal d1">
-        <div class="ind-bg"></div>
-        <div class="ind-content">
-          <div class="ind-ic"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg></div>
-          <h4>Healthcare</h4>
-          <p>Hospitals, clinics &amp; medical facilities</p>
-        </div>
-      </div>
-      <div class="ind reveal d2">
-        <div class="ind-bg"></div>
-        <div class="ind-content">
-          <div class="ind-ic"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="2"/><path d="M7 2v20M17 2v20M2 12h20M2 7h5M2 17h5M17 17h5M17 7h5"/></svg></div>
-          <h4>Industrial</h4>
-          <p>Warehouses, factories &amp; logistics</p>
-        </div>
-      </div>
-      <div class="ind reveal d3">
-        <div class="ind-bg"></div>
-        <div class="ind-content">
-          <div class="ind-ic"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
-          <h4>Residential</h4>
-          <p>Villas, compounds &amp; apartment complexes</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ CAPABILITIES / WHAT WE DO ============ -->
-<section class="sec-pad cap" id="capabilities">
-  <svg class="net3" preserveAspectRatio="xMidYMid slice"></svg>
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <div class="eyebrow" style="color:var(--teal-bright)">What We Do</div>
-      <h2>Systems that protect, connect &amp; empower.</h2>
-      <p>A focused portfolio of security and networking systems, delivered with the same standard of care from first survey to ongoing support.</p>
-    </div>
-    <div class="chip-grid">
-      <div class="chip reveal"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/></svg>Security Systems</div>
-      <div class="chip reveal d1"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="13" height="9" rx="1.5"/><path d="M16 9l5-2v8l-5-2"/></svg>CCTV Surveillance</div>
-      <div class="chip reveal d2"><svg viewBox="0 0 24 24"><path d="M12 2a6 6 0 0 0-6 6v3l-2 4h16l-2-4V8a6 6 0 0 0-6-6z"/><path d="M9 18a3 3 0 0 0 6 0"/></svg>Anti-Theft Alarm</div>
-      <div class="chip reveal d3"><svg viewBox="0 0 24 24"><path d="M2 8l10-5 10 5-10 5z"/><path d="M2 8v8l10 5 10-5V8"/></svg>Networking</div>
-      <div class="chip reveal"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><circle cx="12" cy="11" r="3"/></svg>Biometric Devices</div>
-      <div class="chip reveal d1"><svg viewBox="0 0 24 24"><rect x="6" y="3" width="12" height="18" rx="2"/><path d="M9 6h6"/><circle cx="12" cy="13" r="1"/></svg>Centralized Telephony</div>
-      <div class="chip reveal d2"><svg viewBox="0 0 24 24"><path d="M4 9v6h4l6 4V5l-6 4z"/><path d="M18 8a5 5 0 0 1 0 8"/></svg>Public Address System</div>
-      <div class="chip reveal d3"><svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="12" cy="18" r="2"/><path d="M6 8v3a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V8M12 13v3"/></svg>Fiber &amp; Structured Cabling</div>
-    </div>
-  </div>
-</section>
-
 <!-- ============ PROJECT GALLERY ============ -->
 <section class="sec-pad gallery" id="projects">
   <div class="wrap">
@@ -804,6 +741,51 @@
 
     </div>
     <p class="gallery-note reveal">Have a project in mind? <a href="#contact">Let's talk</a> — we'd love to show you what we can build.</p>
+  </div>
+</section>
+
+<!-- ============ INDUSTRIES ============ -->
+<section class="sec-pad industries">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <div class="eyebrow">Industries We Serve</div>
+      <h2>Built for every sector, tailored to your needs.</h2>
+      <p>From small offices to large industrial facilities — our solutions scale to match your environment.</p>
+    </div>
+    <div class="ind-grid">
+      <div class="ind reveal">
+        <div class="ind-bg"></div>
+        <div class="ind-content">
+          <div class="ind-ic"><svg viewBox="0 0 24 24"><path d="M3 21V7l9-4 9 4v14"/><path d="M9 21V12h6v9"/></svg></div>
+          <h4>Commercial</h4>
+          <p>Offices, malls, commercial centres &amp; retail</p>
+        </div>
+      </div>
+      <div class="ind reveal d1">
+        <div class="ind-bg"></div>
+        <div class="ind-content">
+          <div class="ind-ic"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg></div>
+          <h4>Healthcare</h4>
+          <p>Hospitals, clinics &amp; medical facilities</p>
+        </div>
+      </div>
+      <div class="ind reveal d2">
+        <div class="ind-bg"></div>
+        <div class="ind-content">
+          <div class="ind-ic"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="2"/><path d="M7 2v20M17 2v20M2 12h20M2 7h5M2 17h5M17 17h5M17 7h5"/></svg></div>
+          <h4>Industrial</h4>
+          <p>Warehouses, factories &amp; logistics</p>
+        </div>
+      </div>
+      <div class="ind reveal d3">
+        <div class="ind-bg"></div>
+        <div class="ind-content">
+          <div class="ind-ic"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+          <h4>Residential</h4>
+          <p>Villas, compounds &amp; apartment complexes</p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1097,7 +1079,7 @@
     });
   }
   buildNet(document.getElementById('heroNet'), 46, 1200, 720);
-  document.querySelectorAll('.net2,.net3,.net4').forEach(svg => buildNet(svg, 34, 800, 600));
+  document.querySelectorAll('.net2,.net4').forEach(svg => buildNet(svg, 34, 800, 600));
 </script>
 </body>
 </html>
