@@ -218,20 +218,76 @@
   .chip svg{width:22px;height:22px;stroke:var(--teal-bright);fill:none;stroke-width:1.7;}
 
   /* ============ PROJECT GALLERY ============ */
-  .gallery{background:var(--mist);}
-  .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:auto auto;gap:18px;}
-  .gcard{border-radius:18px;overflow:hidden;position:relative;display:flex;flex-direction:column;justify-content:flex-end;transition:transform .4s var(--ease),box-shadow .4s var(--ease);}
-  .gcard:hover{transform:translateY(-6px);box-shadow:var(--shadow);}
-  .gcard:hover .gcard-inner img{transform:scale(1.06);}
-  .gcard.wide{grid-column:span 2;}
-  .gcard-inner{min-height:220px;position:relative;display:flex;align-items:flex-end;padding:26px 24px;overflow:hidden;}
-  .gcard.wide .gcard-inner{min-height:280px;}
-  .gcard-inner img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .6s var(--ease);}
-  .gcard-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,13,46,.05) 0%,rgba(7,13,46,.55) 50%,rgba(7,13,46,.9) 100%);z-index:1;}
-  .gcard-label{position:relative;z-index:2;}
-  .gcard-label span{display:inline-block;background:rgba(31,196,196,.2);border:1px solid rgba(31,196,196,.4);color:var(--teal-bright);font-family:'Sora',sans-serif;font-size:.7rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:4px 12px;border-radius:999px;margin-bottom:8px;}
-  .gcard-label p{color:#fff;font-family:'Sora',sans-serif;font-size:1rem;font-weight:600;text-shadow:0 1px 4px rgba(0,0,0,.4);}
-  .gallery-note{text-align:center;margin-top:30px;color:var(--slate);font-size:.92rem;}
+  .gallery{background:var(--navy-900);}
+  .gallery .sec-head h2{color:#fff;}
+  .gallery .sec-head p{color:rgba(255,255,255,.6);}
+  .gallery .eyebrow{color:var(--teal-bright);}
+
+  .gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    grid-template-rows:290px 255px 290px;
+    gap:14px;
+  }
+  .gcard{border-radius:20px;overflow:hidden;position:relative;cursor:default;}
+  .gcard:nth-child(1){grid-column:1/3;grid-row:1;}
+  .gcard:nth-child(2){grid-column:3;grid-row:1/3;}
+  .gcard:nth-child(3){grid-column:1;grid-row:2;}
+  .gcard:nth-child(4){grid-column:2;grid-row:2;}
+  .gcard:nth-child(5){grid-column:1/3;grid-row:3;}
+  .gcard:nth-child(6){grid-column:3;grid-row:3;}
+
+  .gcard-inner{position:relative;width:100%;height:100%;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;}
+  .gcard-inner img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .75s cubic-bezier(.25,.46,.45,.94);}
+  .gcard:hover .gcard-inner img{transform:scale(1.09);}
+
+  .gcard-overlay{
+    position:absolute;inset:0;z-index:1;
+    background:linear-gradient(to bottom,rgba(7,13,46,0) 0%,rgba(7,13,46,.18) 40%,rgba(7,13,46,.72) 68%,rgba(7,13,46,.96) 100%);
+    transition:opacity .4s;
+  }
+
+  .gcard-num{
+    position:absolute;top:16px;right:16px;z-index:3;
+    font-family:'Sora',sans-serif;font-weight:700;font-size:.7rem;letter-spacing:.1em;
+    background:rgba(7,13,46,.55);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.18);
+    color:rgba(255,255,255,.75);padding:4px 11px;border-radius:999px;
+  }
+
+  .gcard-content{position:relative;z-index:2;padding:22px 24px;transform:translateY(0);transition:transform .4s var(--ease);}
+  .gcard:hover .gcard-content{transform:translateY(-5px);}
+
+  .gcard-cat{
+    display:inline-flex;align-items:center;gap:6px;
+    background:var(--teal);color:var(--navy-900);
+    font-family:'Sora',sans-serif;font-size:.66rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;
+    padding:5px 12px;border-radius:999px;margin-bottom:10px;
+    box-shadow:0 4px 14px -4px rgba(31,196,196,.6);
+  }
+  .gcard-cat i{width:5px;height:5px;border-radius:50%;background:var(--navy-900);flex:none;}
+
+  .gcard-content h4{
+    font-family:'Sora',sans-serif;font-size:1.06rem;font-weight:600;
+    color:#fff;line-height:1.3;text-shadow:0 2px 10px rgba(0,0,0,.6);
+  }
+  .gcard-desc{
+    font-size:.84rem;color:rgba(255,255,255,.78);line-height:1.55;
+    margin-top:8px;max-height:0;overflow:hidden;opacity:0;
+    transition:max-height .45s var(--ease),opacity .4s var(--ease);
+  }
+  .gcard:hover .gcard-desc{max-height:72px;opacity:1;}
+
+  .gcard::after{
+    content:"";position:absolute;bottom:0;left:0;right:0;height:3px;z-index:4;
+    background:linear-gradient(90deg,var(--teal),var(--teal-bright));
+    transform:scaleX(0);transform-origin:left;
+    transition:transform .5s var(--ease);
+    border-radius:0 0 20px 20px;
+  }
+  .gcard:hover::after{transform:scaleX(1);}
+
+  .gallery-note{text-align:center;margin-top:36px;color:rgba(255,255,255,.45);font-size:.9rem;}
+  .gallery-note a{color:var(--teal-bright);font-weight:600;text-decoration:underline;text-underline-offset:3px;}
 
   /* ============ TESTIMONIALS ============ */
   .testimonials{background:var(--white);}
@@ -322,8 +378,13 @@
     .process-steps{grid-template-columns:repeat(2,1fr);gap:40px;}
     .process-steps::before{display:none;}
     .ind-grid{grid-template-columns:repeat(2,1fr);}
-    .gallery-grid{grid-template-columns:1fr 1fr;}
-    .gcard.wide{grid-column:span 2;}
+    .gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:240px 220px 200px 240px;}
+    .gcard:nth-child(1){grid-column:1/3;grid-row:1;}
+    .gcard:nth-child(2){grid-column:1;grid-row:2;}
+    .gcard:nth-child(3){grid-column:2;grid-row:2;}
+    .gcard:nth-child(4){grid-column:1;grid-row:3;}
+    .gcard:nth-child(5){grid-column:1/3;grid-row:4;}
+    .gcard:nth-child(6){grid-column:2;grid-row:3;}
     .testi-grid{grid-template-columns:1fr;}
   }
   @media(max-width:680px){
@@ -340,8 +401,8 @@
     .wrap{padding:0 20px;}
     .process-steps{grid-template-columns:1fr;}
     .ind-grid{grid-template-columns:1fr 1fr;}
-    .gallery-grid{grid-template-columns:1fr;}
-    .gcard.wide{grid-column:span 1;}
+    .gallery-grid{grid-template-columns:1fr;grid-template-rows:repeat(6,220px);}
+    .gcard:nth-child(n){grid-column:1 !important;grid-row:auto !important;}
     .form-btns{grid-template-columns:1fr;}
     .wa-fab{bottom:20px;right:20px;}
     .hero-trust{gap:14px;}
@@ -653,61 +714,96 @@
     <div class="sec-head center reveal">
       <div class="eyebrow">Project Highlights</div>
       <h2>Real work. Real results.</h2>
-      <p>A selection of completed installations across commercial, industrial and residential facilities in Saudi Arabia.</p>
+      <p>Completed installations across commercial, industrial and residential facilities in Saudi Arabia. Hover any card to learn more.</p>
     </div>
     <div class="gallery-grid">
-      <div class="gcard wide reveal">
-        <div class="gcard-inner">
-          <img src="img/gallery/cctv-videowall.jpeg" alt="Hikvision CCTV video wall installation" loading="lazy" />
-          <div class="gcard-overlay"></div>
-          <div class="gcard-label">
-            <span>CCTV Surveillance</span>
-            <p>Triple-screen Hikvision video wall — 30+ camera feeds, real-time monitoring across facility</p>
-          </div>
-        </div>
-      </div>
-      <div class="gcard reveal d1">
-        <div class="gcard-inner">
-          <img src="img/gallery/network-rack.jpeg" alt="D-Link patch panel rack installation" loading="lazy" />
-          <div class="gcard-overlay"></div>
-          <div class="gcard-label">
-            <span>IT Networking</span>
-            <p>D-Link rack with labeled patch panels, structured cabling and active equipment</p>
-          </div>
-        </div>
-      </div>
-      <div class="gcard reveal d2">
-        <div class="gcard-inner">
-          <img src="img/gallery/biometric-suprema.jpeg" alt="Suprema face recognition biometric terminal" loading="lazy" />
-          <div class="gcard-overlay"></div>
-          <div class="gcard-label">
-            <span>Biometrics</span>
-            <p>Suprema face recognition time-attendance terminal — installed and commissioned</p>
-          </div>
-        </div>
-      </div>
+
+      <!-- 1: CCTV Videowall — wide landscape, col 1-2 row 1 -->
       <div class="gcard reveal">
         <div class="gcard-inner">
-          <img src="img/gallery/cctv-server-room.jpeg" alt="CCTV control room with server rack" loading="lazy" />
+          <img src="img/gallery/cctv-videowall.jpeg" alt="Hikvision triple-screen CCTV video wall" loading="lazy" />
           <div class="gcard-overlay"></div>
-          <div class="gcard-label">
-            <span>IT Infrastructure</span>
-            <p>Hikvision NVR monitoring stack alongside a fully populated Marshcom server rack</p>
+          <div class="gcard-num">01</div>
+          <div class="gcard-content">
+            <div class="gcard-cat"><i></i>CCTV Surveillance</div>
+            <h4>Triple-screen Hikvision video wall with 30+ live camera feeds</h4>
+            <p class="gcard-desc">Full NVR-managed surveillance deployment covering an entire industrial facility — real-time monitoring, motion detection and remote access.</p>
           </div>
         </div>
       </div>
-      <div class="gcard wide reveal d1">
+
+      <!-- 2: Network Rack — portrait, col 3 rows 1-2 -->
+      <div class="gcard reveal d1">
         <div class="gcard-inner">
-          <img src="img/gallery/team-installation.jpeg" alt="SAACO technicians performing industrial UPS installation" loading="lazy" />
+          <img src="img/gallery/network-rack.jpeg" alt="D-Link structured cabling and patch panel rack" loading="lazy" />
           <div class="gcard-overlay"></div>
-          <div class="gcard-label">
-            <span>Field Installation</span>
-            <p>SAACO team on-site — industrial Eaton UPS commissioning in a large commercial facility</p>
+          <div class="gcard-num">02</div>
+          <div class="gcard-content">
+            <div class="gcard-cat"><i></i>IT Networking</div>
+            <h4>D-Link rack — labelled patch panels &amp; structured cabling</h4>
+            <p class="gcard-desc">Enterprise rack build with full cable management, port labelling and active D-Link switching equipment.</p>
           </div>
         </div>
       </div>
+
+      <!-- 3: Biometrics — portrait, col 1 row 2 -->
+      <div class="gcard reveal d2">
+        <div class="gcard-inner">
+          <img src="img/gallery/biometric-suprema.jpeg" alt="Suprema face recognition terminal" loading="lazy" />
+          <div class="gcard-overlay"></div>
+          <div class="gcard-num">03</div>
+          <div class="gcard-content">
+            <div class="gcard-cat"><i></i>Biometrics</div>
+            <h4>Suprema face recognition time-attendance terminal</h4>
+            <p class="gcard-desc">Facial recognition + card/PIN access, seamlessly integrated with HR attendance systems.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4: Access Control — portrait, col 2 row 2 -->
+      <div class="gcard reveal d3">
+        <div class="gcard-inner">
+          <img src="img/gallery/access-control.jpeg" alt="Door access control keypad installation" loading="lazy" />
+          <div class="gcard-overlay"></div>
+          <div class="gcard-num">04</div>
+          <div class="gcard-content">
+            <div class="gcard-cat"><i></i>Access Control</div>
+            <h4>Keypad &amp; RFID door access controller</h4>
+            <p class="gcard-desc">Secure entry restriction — installed and programmed for commercial premises with multiple access levels.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5: Team Installation — wide landscape, col 1-2 row 3 -->
+      <div class="gcard reveal d1">
+        <div class="gcard-inner">
+          <img src="img/gallery/team-installation.jpeg" alt="SAACO technicians on industrial UPS installation" loading="lazy" />
+          <div class="gcard-overlay"></div>
+          <div class="gcard-num">05</div>
+          <div class="gcard-content">
+            <div class="gcard-cat"><i></i>Field Installation</div>
+            <h4>SAACO team — Eaton UPS commissioning in industrial facility</h4>
+            <p class="gcard-desc">On-site deployment of large-scale power infrastructure. Our branded team handles everything from delivery to full commissioning and handover.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6: CCTV + Server Room — portrait, col 3 row 3 -->
+      <div class="gcard reveal d2">
+        <div class="gcard-inner">
+          <img src="img/gallery/cctv-server-room.jpeg" alt="CCTV control room with Marshcom server rack" loading="lazy" />
+          <div class="gcard-overlay"></div>
+          <div class="gcard-num">06</div>
+          <div class="gcard-content">
+            <div class="gcard-cat"><i></i>IT Infrastructure</div>
+            <h4>Hikvision NVR stack &amp; Marshcom server rack</h4>
+            <p class="gcard-desc">Integrated control room — stacked NVR monitoring alongside a fully populated server rack for complete facility management.</p>
+          </div>
+        </div>
+      </div>
+
     </div>
-    <p class="gallery-note reveal">Have a project in mind? <a href="#contact" style="color:var(--teal-deep);font-weight:600;">Get in touch</a> — we'd love to show you what we can build.</p>
+    <p class="gallery-note reveal">Have a project in mind? <a href="#contact">Let's talk</a> — we'd love to show you what we can build.</p>
   </div>
 </section>
 
