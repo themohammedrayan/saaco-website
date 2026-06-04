@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@500;600;700&display=swap" rel="stylesheet" />
+<link rel="icon" href="logo.png" type="image/png" />
 <style>
   :root{
     --navy-900:#070d2e;
@@ -98,9 +99,9 @@
   header.scrolled{box-shadow:0 12px 34px -22px rgba(7,13,46,.4);}
   nav{display:flex;align-items:center;justify-content:space-between;height:74px;}
   .brand{display:flex;align-items:center;gap:13px;}
-  .logo-mark{width:44px;height:44px;flex:none;border-radius:8px;object-fit:contain;}
+  .logo-mark{width:54px;height:54px;flex:none;border-radius:8px;object-fit:contain;}
   .brand-text{display:flex;flex-direction:column;line-height:1;}
-  .brand-text b{font-family:'Sora',sans-serif;font-weight:800;font-size:1.32rem;letter-spacing:.04em;color:var(--navy-800);}
+  .brand-text b{font-family:'Sora',sans-serif;font-weight:800;font-size:1.55rem;letter-spacing:.04em;color:var(--navy-800);}
   .brand-text span{font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--teal-deep);font-weight:600;margin-top:3px;}
   .nav-links{display:flex;align-items:center;gap:30px;}
   .nav-links a{font-family:'Sora',sans-serif;font-size:.87rem;font-weight:500;color:var(--navy-800);position:relative;padding:4px 0;}
@@ -127,16 +128,23 @@
   .hero-trust-item svg{width:16px;height:16px;stroke:var(--teal-bright);fill:none;stroke-width:2;flex:none;}
 
   /* Hex cluster visual */
-  .hex-cluster{position:relative;height:440px;display:flex;align-items:center;justify-content:center;}
-  .hexes{position:relative;width:340px;height:380px;}
-  .hex{position:absolute;width:150px;height:170px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;color:#fff;background:linear-gradient(150deg,var(--navy-500),var(--navy-700));border:1px solid rgba(31,196,196,.25);box-shadow:0 30px 60px -30px rgba(0,0,0,.7);}
-  .hex svg{width:34px;height:34px;stroke:var(--teal-bright);fill:none;stroke-width:1.6;}
-  .hex span{font-family:'Sora',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.04em;padding:0 10px;}
-  .hex.h1{top:0;left:95px;animation:float 6s ease-in-out infinite;}
-  .hex.h2{top:120px;left:0;background:linear-gradient(150deg,var(--teal-deep),var(--navy-600));animation:float 6s ease-in-out infinite .8s;}
-  .hex.h3{top:120px;left:190px;animation:float 6s ease-in-out infinite 1.6s;}
-  .hex.h4{top:240px;left:95px;background:linear-gradient(150deg,var(--teal),var(--teal-deep));color:var(--navy-900);animation:float 6s ease-in-out infinite 2.4s;}
+  .hex-cluster{position:relative;height:560px;display:flex;align-items:center;justify-content:center;}
+  .hexes{position:relative;width:410px;height:490px;}
+  .hex{position:absolute;width:130px;height:150px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center;color:#fff;background:linear-gradient(150deg,var(--navy-500),var(--navy-700));border:1px solid rgba(31,196,196,.25);box-shadow:0 30px 60px -30px rgba(0,0,0,.7);}
+  .hex svg{width:30px;height:30px;stroke:var(--teal-bright);fill:none;stroke-width:1.6;}
+  .hex span{font-family:'Sora',sans-serif;font-size:.68rem;font-weight:600;letter-spacing:.04em;padding:0 8px;}
+  .hex.h1{top:0;left:0;animation:float 6s ease-in-out infinite;}
+  .hex.h2{top:0;left:140px;background:linear-gradient(150deg,var(--teal-deep),var(--navy-600));animation:float 6s ease-in-out infinite .5s;}
+  .hex.h3{top:0;left:280px;animation:float 6s ease-in-out infinite 1s;}
+  .hex.h4{top:112px;left:70px;background:linear-gradient(150deg,var(--teal),var(--teal-deep));color:var(--navy-900);animation:float 6s ease-in-out infinite 1.5s;}
   .hex.h4 svg{stroke:var(--navy-900);}
+  .hex.h5{top:112px;left:210px;animation:float 6s ease-in-out infinite 2s;}
+  .hex.h6{top:224px;left:0;background:linear-gradient(150deg,var(--teal-deep),var(--navy-600));animation:float 6s ease-in-out infinite 2.5s;}
+  .hex.h7{top:224px;left:140px;animation:float 6s ease-in-out infinite 3s;}
+  .hex.h8{top:224px;left:280px;animation:float 6s ease-in-out infinite 3.5s;}
+  .hex.h9{top:336px;left:70px;animation:float 6s ease-in-out infinite 4s;}
+  .hex.h10{top:336px;left:210px;background:linear-gradient(150deg,var(--teal),var(--teal-deep));color:var(--navy-900);animation:float 6s ease-in-out infinite 4.5s;}
+  .hex.h10 svg{stroke:var(--navy-900);}
   @keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-12px);}}
 
   /* ============ STATS STRIP ============ */
@@ -369,7 +377,8 @@
   @media(max-width:980px){
     .sec-pad{padding:68px 0;}
     .hero .wrap{grid-template-columns:1fr;padding-top:56px;padding-bottom:64px;}
-    .hex-cluster{order:-1;height:360px;margin-bottom:10px;}
+    .hex-cluster{order:-1;height:400px;margin-bottom:10px;}
+    .hexes{transform:scale(0.72);transform-origin:top center;}
     .about-grid,.contact-grid{grid-template-columns:1fr;gap:42px;}
     .svc-grid{grid-template-columns:repeat(2,1fr);}
     .stats .wrap{grid-template-columns:repeat(2,1fr);gap:30px 16px;}
@@ -410,6 +419,8 @@
     .form-btns{grid-template-columns:1fr;}
     .wa-fab{bottom:20px;right:20px;}
     .hero-trust{gap:14px;}
+    .hex-cluster{height:330px;}
+    .hexes{transform:scale(0.62);transform-origin:top center;}
   }
 </style>
 </head>
@@ -426,7 +437,7 @@
   <div class="wrap">
     <div class="tb-group">
       <a class="tb-item" href="tel:+966590246464"><svg viewBox="0 0 24 24"><path d="M3 5c0 9 7 16 16 16l3-3-4-3-2 2c-3-1-6-4-7-7l2-2-3-4-5 1z"/></svg>0590 246 464</a>
-      <a class="tb-item" href="mailto:it@saaco.info"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>it@saaco.info</a>
+      <a class="tb-item" href="mailto:admin@saaco.tech"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>admin@saaco.tech</a>
     </div>
     <div class="tb-group secondary">
       <span class="tb-item"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.3-7-11a7 7 0 0 1 14 0c0 5.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.4"/></svg>Jeddah, Saudi Arabia</span>
@@ -440,7 +451,7 @@
   <div class="wrap">
     <nav>
       <a class="brand" href="#top">
-        <img class="logo-mark" src="img/gallery/saaco-logo.png" alt="SAACO logo" />
+        <img class="logo-mark" src="logo.png" alt="SAACO logo" />
         <span class="brand-text"><b>SAACO</b><span>IT &amp; Security Solutions</span></span>
       </a>
       <div class="nav-links" id="navLinks">
@@ -483,6 +494,12 @@
         <div class="hex h2"><svg viewBox="0 0 24 24"><path d="M3 7l9-4 9 4v6c0 5-4 8-9 9-5-1-9-4-9-9z"/></svg><span>Security</span></div>
         <div class="hex h3"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="13" rx="2"/><path d="M8 21h8M12 18v3"/><circle cx="12" cy="11" r="3"/></svg><span>CCTV</span></div>
         <div class="hex h4"><svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="4"/><path d="M5 21c0-4 3.5-6 7-6s7 2 7 6"/></svg><span>Biometrics</span></div>
+        <div class="hex h5"><svg viewBox="0 0 24 24"><path d="M3 7l9-4 9 4v6c0 5-4 8-9 9-5-1-9-4-9-9z"/><path d="M12 11v3M12 17h.01"/></svg><span>Alarm Systems</span></div>
+        <div class="hex h6"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.58 1h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.5a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>IP Telephony</span></div>
+        <div class="hex h7"><svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="12" cy="18" r="2"/><path d="M6 8v3a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V8M12 13v3"/></svg><span>Fiber Cabling</span></div>
+        <div class="hex h8"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="13" height="18" rx="2"/><circle cx="13" cy="12" r="2"/><path d="M19 11v2"/></svg><span>Access Control</span></div>
+        <div class="hex h9"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="15" height="11" rx="1.5"/><path d="M17 9l5-3v10l-5-3"/><circle cx="9.5" cy="10.5" r="2"/></svg><span>Video Intercom</span></div>
+        <div class="hex h10"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/><path d="M8 14h.01M12 14h.01M16 14h.01"/></svg><span>AMC</span></div>
       </div>
     </div>
   </div>
@@ -625,9 +642,9 @@
       </div>
       <div class="svc reveal">
         <span class="svc-num">07</span>
-        <div class="svc-ic"><svg viewBox="0 0 24 24"><path d="M4 9v6h4l6 4V5l-6 4z"/><path d="M18 8a5 5 0 0 1 0 8"/></svg></div>
-        <h3>Public Address Systems</h3>
-        <p>Design and installation of public address systems for clear audio communication, announcements and reliable emergency alerts.</p>
+        <div class="svc-ic"><svg viewBox="0 0 24 24"><path d="M3 7l9-4 9 4v6c0 5-4 8-9 9-5-1-9-4-9-9z"/><path d="M12 11v3M12 16.5h.01"/></svg></div>
+        <h3>Anti-Theft Alarm Systems</h3>
+        <p>Comprehensive alarm solutions for commercial premises, residential properties and factory facilities — motion detection, door sensors and 24/7 alert monitoring.</p>
       </div>
       <div class="svc reveal d1">
         <span class="svc-num">08</span>
@@ -637,9 +654,9 @@
       </div>
       <div class="svc reveal d2">
         <span class="svc-num">09</span>
-        <div class="svc-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg></div>
-        <h3>IT Networking &amp; Security</h3>
-        <p>Complete networking solutions, from LAN/WAN setup to network security, firewalls and VPNs — ensuring your data and communications stay safe and reliable.</p>
+        <div class="svc-ic"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="15" height="11" rx="1.5"/><path d="M17 9l5-3v10l-5-3"/><circle cx="9.5" cy="10.5" r="2"/></svg></div>
+        <h3>Video Home Intercom</h3>
+        <p>Wired and IP-based video intercom systems for homes, apartment buildings and offices — clear video, two-way audio and remote door release capability.</p>
       </div>
     </div>
   </div>
@@ -856,16 +873,16 @@
       <p>We build on trusted, enterprise-grade hardware from globally recognised manufacturers to guarantee performance and longevity.</p>
     </div>
     <div class="brand-grid">
-      <div class="brand-cell reveal"><b>HIK<em>VISION</em></b></div>
-      <div class="brand-cell reveal d1"><b>Dahua</b></div>
-      <div class="brand-cell reveal d2"><b>AJAX</b></div>
-      <div class="brand-cell reveal d3"><b>ZKT<em>eco</em></b></div>
-      <div class="brand-cell reveal d4"><b>Grandstream</b></div>
-      <div class="brand-cell reveal"><b>Ruijie</b></div>
-      <div class="brand-cell reveal d1"><b>CISCO</b></div>
-      <div class="brand-cell reveal d2"><b>BELDEN</b></div>
-      <div class="brand-cell reveal d3"><b>D-Link</b></div>
-      <div class="brand-cell reveal d4"><b>Suprema</b></div>
+      <div class="brand-cell reveal" style="border-top:3px solid #e02020;flex-direction:column;gap:4px;"><b style="color:#e02020;">HIKVISION</b><small style="font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--navy-500);font-family:'Sora',sans-serif;font-weight:600;">CCTV · NVR</small></div>
+      <div class="brand-cell reveal d1" style="border-top:3px solid #e55a00;flex-direction:column;gap:4px;"><b style="color:#e55a00;">Dahua</b><small style="font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--navy-500);font-family:'Sora',sans-serif;font-weight:600;">CCTV · DVR</small></div>
+      <div class="brand-cell reveal d2" style="border-top:3px solid #e63946;flex-direction:column;gap:4px;"><b style="color:#e63946;">AJAX</b><small style="font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--navy-500);font-family:'Sora',sans-serif;font-weight:600;">Alarm Systems</small></div>
+      <div class="brand-cell reveal d3" style="border-top:3px solid #006aff;flex-direction:column;gap:4px;"><b style="color:#006aff;">ZKTeco</b><small style="font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--navy-500);font-family:'Sora',sans-serif;font-weight:600;">Biometrics · Access</small></div>
+      <div class="brand-cell reveal d4" style="border-top:3px solid #ff6b00;flex-direction:column;gap:4px;"><b style="color:#ff6b00;">Grandstream</b><small style="font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--navy-500);font-family:'Sora',sans-serif;font-weight:600;">IP Telephony</small></div>
+      <div class="brand-cell reveal" style="border-top:3px solid #003087;flex-direction:column;gap:4px;"><b style="color:#003087;">Ruijie</b><small style="font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--navy-500);font-family:'Sora',sans-serif;font-weight:600;">Networking</small></div>
+      <div class="brand-cell reveal d1" style="border-top:3px solid #1ba0d7;flex-direction:column;gap:4px;"><b style="color:#1ba0d7;">CISCO</b><small style="font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--navy-500);font-family:'Sora',sans-serif;font-weight:600;">Enterprise Network</small></div>
+      <div class="brand-cell reveal d2" style="border-top:3px solid #c49a2a;flex-direction:column;gap:4px;"><b style="color:#c49a2a;">BELDEN</b><small style="font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--navy-500);font-family:'Sora',sans-serif;font-weight:600;">Structured Cabling</small></div>
+      <div class="brand-cell reveal d3" style="border-top:3px solid #007d3c;flex-direction:column;gap:4px;"><b style="color:#007d3c;">D-Link</b><small style="font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--navy-500);font-family:'Sora',sans-serif;font-weight:600;">Switches · Wireless</small></div>
+      <div class="brand-cell reveal d4" style="border-top:3px solid #8e24aa;flex-direction:column;gap:4px;"><b style="color:#8e24aa;">Suprema</b><small style="font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--navy-500);font-family:'Sora',sans-serif;font-weight:600;">Biometric Access</small></div>
     </div>
   </div>
 </section>
@@ -890,7 +907,7 @@
           </div>
           <div class="ct-item">
             <div class="ct-ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></div>
-            <div class="t"><b>Email</b><a href="mailto:it@saaco.info">it@saaco.info</a><a href="mailto:sales@sultanalasmari.com">sales@sultanalasmari.com</a></div>
+            <div class="t"><b>Email</b><a href="mailto:admin@saaco.tech">admin@saaco.tech</a></div>
           </div>
           <div class="ct-item">
             <div class="ct-ic"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.3-7-11a7 7 0 0 1 14 0c0 5.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.4"/></svg></div>
@@ -914,9 +931,9 @@
               <option>Biometric Door Access Control</option>
               <option>UTP / Fiber Networking</option>
               <option>IP Centralized Telephone Systems</option>
-              <option>Public Address Systems</option>
+              <option>Anti-Theft Alarm Systems</option>
               <option>AMC — Annual Maintenance</option>
-              <option>IT Networking &amp; Security</option>
+              <option>Video Home Intercom</option>
               <option>Multiple / Not sure yet</option>
             </select>
           </div>
@@ -943,7 +960,7 @@
     <div class="foot-top">
       <div class="foot-brand">
         <div class="brand">
-          <img class="logo-mark" src="img/gallery/saaco-logo.png" alt="SAACO logo" style="border-radius:8px;background:#fff;" />
+          <img class="logo-mark" src="logo.png" alt="SAACO logo" style="border-radius:8px;background:#fff;" />
           <span class="brand-text"><b>SAACO</b><span style="color:var(--teal)">IT &amp; Security Solutions</span></span>
         </div>
         <p>Sultan Ali Bin Ahmad Al Asmari Commercial Establishment. Connecting networks and securing futures across Saudi Arabia.</p>
@@ -960,7 +977,7 @@
         <h4>Contact</h4>
         <a href="tel:+966590246464">0590 246 464</a>
         <a href="tel:+966552151564">0552 151 564</a>
-        <a href="mailto:it@saaco.info">it@saaco.info</a>
+        <a href="mailto:admin@saaco.tech">admin@saaco.tech</a>
         <a href="https://wa.me/966590246464" target="_blank" rel="noopener">WhatsApp Us</a>
         <span>Jeddah, Saudi Arabia</span>
       </div>
