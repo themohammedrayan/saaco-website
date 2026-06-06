@@ -230,7 +230,7 @@ nav{display:flex;align-items:center;justify-content:space-between;height:92px;}
 .gallery-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  grid-template-rows:290px 255px 290px;
+  grid-template-rows:290px 255px 290px 255px 290px;
   gap:14px;
 }
 .gcard{border-radius:20px;overflow:hidden;position:relative;cursor:default;}
@@ -240,6 +240,10 @@ nav{display:flex;align-items:center;justify-content:space-between;height:92px;}
 .gcard:nth-child(4){grid-column:2;grid-row:2;}
 .gcard:nth-child(5){grid-column:1/3;grid-row:3;}
 .gcard:nth-child(6){grid-column:3;grid-row:3;}
+.gcard:nth-child(7){grid-column:1;grid-row:4;}
+.gcard:nth-child(8){grid-column:2/4;grid-row:4;}
+.gcard:nth-child(9){grid-column:1/3;grid-row:5;}
+.gcard:nth-child(10){grid-column:3;grid-row:5;}
 
 .gcard-inner{position:relative;width:100%;height:100%;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;}
 .gcard-inner img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .75s cubic-bezier(.25,.46,.45,.94);}
@@ -316,6 +320,16 @@ nav{display:flex;align-items:center;justify-content:space-between;height:92px;}
 .brand-logo{max-width:120px;max-height:50px;object-fit:contain;}
 .brand-cell b em{font-style:normal;color:var(--teal-deep);}
 
+/* ============ BRANDS TICKER ============ */
+.brands-ticker-sec{overflow:hidden;}
+.ticker-outer{width:100%;overflow:hidden;padding:8px 0;mask-image:linear-gradient(to right,transparent 0%,black 10%,black 90%,transparent 100%);-webkit-mask-image:linear-gradient(to right,transparent 0%,black 10%,black 90%,transparent 100%);}
+.ticker-track{display:flex;gap:20px;width:max-content;animation:ticker 32s linear infinite;}
+.ticker-track:hover{animation-play-state:paused;}
+.ticker-item{flex:0 0 auto;background:var(--white);border:1px solid var(--mist-2);border-radius:14px;width:170px;height:90px;display:flex;align-items:center;justify-content:center;padding:16px 24px;}
+.ticker-item img{max-width:110px;max-height:50px;object-fit:contain;filter:grayscale(20%);transition:filter .3s;}
+.ticker-item:hover img{filter:grayscale(0%);}
+@keyframes ticker{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+
 /* ============ CONTACT ============ */
 .contact{background:linear-gradient(160deg,var(--navy-800),var(--navy-900));color:#fff;overflow:hidden;}
 .contact .net4{position:absolute;inset:0;opacity:.3;}
@@ -390,13 +404,17 @@ footer{background:var(--navy-900);color:rgba(255,255,255,.65);padding:60px 0 0;}
   .process-steps{grid-template-columns:repeat(2,1fr);gap:40px;}
   .process-steps::before{display:none;}
   .ind-grid{grid-template-columns:repeat(2,1fr);}
-  .gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:240px 220px 200px 240px;}
+  .gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:240px 220px 200px 240px 220px 240px 200px;}
   .gcard:nth-child(1){grid-column:1/3;grid-row:1;}
   .gcard:nth-child(2){grid-column:1;grid-row:2;}
   .gcard:nth-child(3){grid-column:2;grid-row:2;}
   .gcard:nth-child(4){grid-column:1;grid-row:3;}
   .gcard:nth-child(5){grid-column:1/3;grid-row:4;}
   .gcard:nth-child(6){grid-column:2;grid-row:3;}
+  .gcard:nth-child(7){grid-column:1;grid-row:5;}
+  .gcard:nth-child(8){grid-column:2;grid-row:5;}
+  .gcard:nth-child(9){grid-column:1/3;grid-row:6;}
+  .gcard:nth-child(10){grid-column:1;grid-row:7;}
   .testi-grid{grid-template-columns:1fr;}
 }
 @media(max-width:680px){
@@ -406,7 +424,7 @@ footer{background:var(--navy-900);color:rgba(255,255,255,.65);padding:60px 0 0;}
   .nav-links.open .nav-cta{display:none;}
   .sec-pad{padding:52px 0;}
   .sec-head{margin-bottom:36px;}
-  .gallery-grid{grid-template-rows:repeat(6,200px);}
+  .gallery-grid{grid-template-rows:repeat(10,200px);}
   .stats .wrap{padding:32px 20px;}
   .svc-grid{grid-template-columns:1fr;}
   .pillars{grid-template-columns:1fr;}
@@ -416,7 +434,7 @@ footer{background:var(--navy-900);color:rgba(255,255,255,.65);padding:60px 0 0;}
   .wrap{padding:0 20px;}
   .process-steps{grid-template-columns:1fr;}
   .ind-grid{grid-template-columns:1fr 1fr;}
-  .gallery-grid{grid-template-columns:1fr;grid-template-rows:repeat(6,220px);}
+  .gallery-grid{grid-template-columns:1fr;grid-template-rows:repeat(10,220px);}
   .gcard:nth-child(n){grid-column:1 !important;grid-row:auto !important;}
   .form-btns{grid-template-columns:1fr;}
   .wa-fab{bottom:20px;right:20px;}
