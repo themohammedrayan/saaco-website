@@ -419,8 +419,11 @@ footer{background:var(--navy-900);color:rgba(255,255,255,.65);padding:60px 0 0;}
   .testi-grid{grid-template-columns:1fr;}
 }
 @media(max-width:680px){
-  .nav-links,.topbar .tb-group.secondary{display:none;}
+  .nav-links{display:none;}
   .menu-toggle{display:flex;}
+  .topbar .wrap{height:auto;padding:8px 0;row-gap:4px;justify-content:center;text-align:center;}
+  .topbar .tb-group{gap:14px;justify-content:center;flex-wrap:wrap;}
+  .topbar .tb-group.secondary .cr{display:none;}
   .nav-links.open{display:flex;position:absolute;top:92px;left:0;right:0;flex-direction:column;background:#fff;padding:22px 28px;gap:18px;box-shadow:var(--shadow);border-top:1px solid var(--mist-2);}
   .nav-links.open .nav-cta{display:none;}
   .sec-pad{padding:52px 0;}
