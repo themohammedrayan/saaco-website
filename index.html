@@ -10,7 +10,21 @@
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@500;600;700&display=swap" rel="stylesheet" />
 <link rel="icon" href="logo.png" type="image/png" />
 <link rel="stylesheet" href="css/style.css" />
-<script>document.documentElement.classList.add('gate-on');</script>
+<script>
+// Gate arrivals from outside the site only — navigating home from another
+// SAACO page must not ask the visitor to choose a division all over again.
+(function() {
+  var internal = false;
+  try {
+    internal = !!document.referrer && new URL(document.referrer).origin === location.origin;
+  } catch (e) {}
+  if (location.search.indexOf('it=1') !== -1) {
+    internal = true;
+    if (history.replaceState) history.replaceState(null, '', location.pathname + location.hash);
+  }
+  if (!internal) document.documentElement.classList.add('gate-on');
+})();
+</script>
 </head>
 <body>
 
