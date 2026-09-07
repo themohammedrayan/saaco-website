@@ -53,13 +53,18 @@
 <section class="tr-doc">
   <div class="wrap">
     <iframe class="pdf-frame" src="SAACO-Trading-Profile.pdf#view=FitH" title="SAACO General Trading — Company Profile"></iframe>
-    <div class="pdf-fallback">
-      <div class="pdf-ic"><svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5z"/><path d="M14 3v5h5"/><path d="M9 14h6"/><path d="M9 17h4"/></svg></div>
-      <h3>SAACO General Trading — Company Profile</h3>
-      <p>Open the full profile to view our trading, supply and general contracting capabilities.</p>
-      <div class="tr-actions">
-        <a class="btn btn-primary" href="SAACO-Trading-Profile.pdf" target="_blank" rel="noopener">Open Profile</a>
-        <a class="btn btn-ghost" href="SAACO-Trading-Profile.pdf" download>Download PDF</a>
+    <!-- phones will not render a PDF in an iframe, so serve the pages as images -->
+    <div class="pdf-pages">
+      <img src="img/trading/profile-1.jpg" alt="SAACO General Trading company profile — page 1" width="1400" height="1981" />
+      <img src="img/trading/profile-2.jpg" alt="SAACO General Trading company profile — page 2" width="1400" height="1981" loading="lazy" />
+      <img src="img/trading/profile-3.jpg" alt="SAACO General Trading company profile — page 3" width="1400" height="1981" loading="lazy" />
+      <img src="img/trading/profile-4.jpg" alt="SAACO General Trading company profile — page 4" width="1400" height="1981" loading="lazy" />
+      <div class="pdf-pages-foot">
+        <p>Prefer the original document?</p>
+        <div class="tr-actions">
+          <a class="btn btn-primary" href="SAACO-Trading-Profile.pdf" target="_blank" rel="noopener">Open PDF</a>
+          <a class="btn btn-ghost" href="SAACO-Trading-Profile.pdf" download>Download PDF</a>
+        </div>
       </div>
     </div>
   </div>

@@ -442,15 +442,14 @@ html.gate-on,html.gate-on body{overflow:hidden;}
 .tr-actions{display:flex;gap:16px;flex-wrap:wrap;margin-top:28px;}
 .tr-doc{background:var(--mist);padding:52px 0 68px;}
 .pdf-frame{width:100%;height:min(84vh,1040px);border:0;border-radius:16px;background:#fff;box-shadow:var(--shadow);}
-.pdf-fallback{display:none;background:var(--white);border:1px solid var(--mist-2);border-radius:18px;padding:34px 26px;text-align:center;box-shadow:var(--shadow-sm);}
-.pdf-fallback .pdf-ic{width:62px;height:62px;margin:0 auto 18px;border-radius:16px;display:flex;align-items:center;justify-content:center;background:rgba(31,196,196,.1);border:1px solid rgba(31,196,196,.28);}
-.pdf-fallback .pdf-ic svg{width:28px;height:28px;stroke:var(--teal-deep);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;}
-.pdf-fallback h3{font-size:1.24rem;color:var(--navy-800);}
-.pdf-fallback p{color:var(--slate);font-size:.94rem;margin:12px auto 24px;max-width:380px;}
-.pdf-fallback .tr-actions{justify-content:center;margin-top:0;}
-/* .btn-ghost is built for dark grounds — restate it for the light fallback card */
-.pdf-fallback .btn-ghost{color:var(--navy-700);border-color:rgba(13,26,85,.2);}
-.pdf-fallback .btn-ghost:hover{color:var(--teal-deep);border-color:var(--teal);}
+.pdf-pages{display:none;}
+.pdf-pages img{width:100%;height:auto;border-radius:12px;box-shadow:var(--shadow-sm);background:#fff;margin-bottom:16px;}
+.pdf-pages-foot{text-align:center;padding-top:14px;}
+.pdf-pages-foot p{color:var(--slate);font-size:.92rem;margin-bottom:16px;}
+.pdf-pages-foot .tr-actions{justify-content:center;margin-top:0;}
+/* .btn-ghost is built for dark grounds — restate it for this light section */
+.pdf-pages .btn-ghost{color:var(--navy-700);border-color:rgba(13,26,85,.2);}
+.pdf-pages .btn-ghost:hover{color:var(--teal-deep);border-color:var(--teal);}
 
 /* ============ RESPONSIVE ============ */
 @media(max-width:980px){
@@ -482,9 +481,9 @@ html.gate-on,html.gate-on body{overflow:hidden;}
   .testi-grid{grid-template-columns:1fr;}
 }
 @media(max-width:900px){
-  /* mobile browsers refuse to render PDFs in an iframe — offer the file instead */
+  /* mobile browsers refuse to render PDFs in an iframe — show the pages as images */
   .pdf-frame{display:none;}
-  .pdf-fallback{display:block;}
+  .pdf-pages{display:block;}
 }
 @media(max-width:680px){
   .gate{padding:26px 18px;align-items:flex-start;}
