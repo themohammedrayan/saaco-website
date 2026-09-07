@@ -1,5 +1,27 @@
 document.getElementById('yr').textContent = new Date().getFullYear();
 
+var gate = document.getElementById('divisionGate');
+if (gate) {
+  var gateCards = gate.querySelectorAll('.gate-card');
+
+  function closeGate() {
+    document.documentElement.classList.remove('gate-on');
+    gate.addEventListener('transitionend', function() { gate.remove(); }, { once: true });
+  }
+
+  document.getElementById('gateIT').addEventListener('click', closeGate);
+  document.addEventListener('keydown', function(e) {
+    if (!document.documentElement.classList.contains('gate-on')) return;
+    if (e.key === 'Escape') { closeGate(); return; }
+    if (e.key !== 'Tab') return;
+    // keep focus inside the gate while it is open
+    var first = gateCards[0], last = gateCards[gateCards.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  });
+  gateCards[0].focus();
+}
+
 var header = document.getElementById('header');
 var scrollTopBtn = document.getElementById('scrollTop');
 if (scrollTopBtn) {

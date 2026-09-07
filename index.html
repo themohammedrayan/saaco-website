@@ -10,8 +10,32 @@
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@500;600;700&display=swap" rel="stylesheet" />
 <link rel="icon" href="logo.png" type="image/png" />
 <link rel="stylesheet" href="css/style.css" />
+<script>document.documentElement.classList.add('gate-on');</script>
 </head>
 <body>
+
+<!-- ============ DIVISION GATE ============ -->
+<div class="gate" id="divisionGate" role="dialog" aria-modal="true" aria-labelledby="gateTitle">
+  <div class="gate-inner">
+    <img class="gate-logo" src="logo.png" alt="SAACO" />
+    <h1 id="gateTitle">Welcome to SAACO</h1>
+    <p class="gate-sub">Sultan Ali Bin Ahmad Al Asmari Commercial &mdash; please choose a division</p>
+    <div class="gate-cards">
+      <button class="gate-card" id="gateIT" type="button">
+        <span class="gate-ic"><svg viewBox="0 0 24 24"><path d="M12 3l7.5 3v5.2c0 4.5-3 8.1-7.5 9.8-4.5-1.7-7.5-5.3-7.5-9.8V6L12 3z"/><path d="M9 12.2l2.1 2.1L15.2 10"/></svg></span>
+        <b>IT &amp; Security Solutions</b>
+        <span class="gate-desc">CCTV, networking, biometrics, telephony &amp; access control</span>
+        <span class="gate-go">Enter site<svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+      </button>
+      <a class="gate-card" href="trading.html">
+        <span class="gate-ic"><svg viewBox="0 0 24 24"><path d="M3 8.5L12 4l9 4.5-9 4.5-9-4.5z"/><path d="M3 12.6l9 4.5 9-4.5"/><path d="M3 16.6l9 4.5 9-4.5"/></svg></span>
+        <b>General Trading</b>
+        <span class="gate-desc">Company profile &mdash; trading, supply &amp; general contracting</span>
+        <span class="gate-go">View profile<svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+      </a>
+    </div>
+  </div>
+</div>
 
 <!-- ============ WHATSAPP FAB ============ -->
 <a class="wa-fab" href="https://wa.me/966590246464?text=Hello%2C%20I%20would%20like%20to%20inquire%20about%20SAACO%27s%20IT%20%26%20Security%20services." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
