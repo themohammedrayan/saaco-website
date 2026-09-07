@@ -1,7 +1,9 @@
 document.getElementById('yr').textContent = new Date().getFullYear();
 
 var gate = document.getElementById('divisionGate');
-if (gate) {
+if (gate && !document.documentElement.classList.contains('gate-on')) {
+  gate.remove(); // arrived from inside the site — the gate was never armed
+} else if (gate) {
   var gateCards = gate.querySelectorAll('.gate-card');
 
   function closeGate() {
