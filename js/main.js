@@ -141,3 +141,16 @@ if (heroNetEl) buildNet(heroNetEl, 46, 1200, 720);
 var pageNetEl = document.getElementById('pageNet');
 if (pageNetEl) buildNet(pageNetEl, 24, 1200, 300);
 document.querySelectorAll('.net2,.net4').forEach(function(svg) { buildNet(svg, 34, 800, 600); });
+
+// Trading catalogue: section links jump to that page — inside the PDF viewer on desktop,
+// or to the page image on phones where the viewer is hidden.
+var pdfFrame = document.querySelector('.pdf-frame');
+document.querySelectorAll('.tr-range a').forEach(function(a) {
+  a.addEventListener('click', function(e) {
+    if (!pdfFrame || pdfFrame.offsetParent === null) return;
+    e.preventDefault();
+    var page = a.getAttribute('href').replace('#page-', '');
+    pdfFrame.src = 'SAACO-Trading-Profile.pdf#page=' + page + '&view=FitH';
+    pdfFrame.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});

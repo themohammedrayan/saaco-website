@@ -440,6 +440,10 @@ html.gate-on,html.gate-on body{overflow:hidden;}
 .tr-nav nav{justify-content:space-between;gap:18px;}
 .tr-nav .brand-text span{color:var(--teal-deep);}
 .tr-actions{display:flex;gap:16px;flex-wrap:wrap;margin-top:28px;}
+.tr-range{list-style:none;display:flex;flex-wrap:wrap;gap:10px;margin-top:22px;padding:0;}
+.tr-range a{display:inline-block;padding:8px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.22);color:#fff;font-size:.86rem;font-weight:600;text-decoration:none;transition:border-color .2s var(--ease),background .2s var(--ease);}
+.tr-range a:hover{border-color:var(--teal);background:rgba(31,196,196,.12);}
+.pdf-pages img{scroll-margin-top:16px;}
 .tr-doc{background:var(--mist);padding:52px 0 68px;}
 .pdf-frame{width:100%;height:min(84vh,1040px);border:0;border-radius:16px;background:#fff;box-shadow:var(--shadow);}
 .pdf-pages{display:none;}
