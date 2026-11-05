@@ -114,6 +114,9 @@ a { color: inherit; text-decoration: none; }
 .v-line { flex: 1; height: 1px; background: rgba(217,165,95,.4); }
 .v-footer p { font-size: 14px; text-align: center; }
 .v-footer b { color: #fff; letter-spacing: .08em; font-size: 15px; }
+.v-footer .v-foot-powered { font-size: 12px; opacity: .75; margin-top: 4px; }
+.v-footer .v-foot-powered a { color: #fff; font-weight: 600; text-decoration: none; }
+.v-footer .v-foot-powered a:hover { text-decoration: underline; }
 .v-foot-contact { margin-bottom: 4px; }
 .v-foot-contact a { color: var(--gold); }
 .v-foot-contact a:hover { text-decoration: underline; }
